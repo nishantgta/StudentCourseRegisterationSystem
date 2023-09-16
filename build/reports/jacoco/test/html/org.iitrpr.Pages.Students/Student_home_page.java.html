@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Student_home_page.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">mini_project_2</a> &gt; <a href="index.source.html" class="el_package">org.iitrpr.Pages.Students</a> &gt; <span class="el_source">Student_home_page.java</span></div><h1>Student_home_page.java</h1><pre class="source lang-java linenums">package org.iitrpr.Pages.Students;
+import java.sql.*;
+import java.util.*;
+
+import com.opencsv.CSVWriter;
+import org.iitrpr.Utilities.Generate_Transcript;
+
+import java.io.FileWriter;
+import java.io.IOException;
+
+<span class="nc" id="L11">public class Student_home_page {</span>
+
+<span class="fc" id="L13">    private static final Map&lt;String,Double&gt; grades_score=new HashMap&lt;&gt;();</span>
+
+<span class="fc" id="L15">    public static String dir_path=&quot;/home/nishant/Documents/Academics/Software_Engineering/Project/mini_project_2/src/main/java/org/iitrpr/grade_submission&quot;;</span>
+    public static void grades_init(){
+<span class="fc" id="L17">        grades_score.put(&quot;A&quot;,10.0);</span>
+<span class="fc" id="L18">        grades_score.put(&quot;A-&quot;,9.0);</span>
+<span class="fc" id="L19">        grades_score.put(&quot;B&quot;,8.0);</span>
+<span class="fc" id="L20">        grades_score.put(&quot;B-&quot;,7.0);</span>
+<span class="fc" id="L21">        grades_score.put(&quot;C&quot;,6.0);</span>
+<span class="fc" id="L22">        grades_score.put(&quot;C-&quot;,5.0);</span>
+<span class="fc" id="L23">        grades_score.put(&quot;D&quot;,4.0);</span>
+<span class="fc" id="L24">        grades_score.put(&quot;D-&quot;,3.0);</span>
+<span class="fc" id="L25">        grades_score.put(&quot;E&quot;,2.0);</span>
+<span class="fc" id="L26">        grades_score.put(&quot;E-&quot;,1.0);</span>
+<span class="fc" id="L27">        grades_score.put(&quot;F&quot;,0.0);</span>
+<span class="fc" id="L28">    }</span>
+    public static void view_personal_info(Statement stmt,String email,String password,ResultSet rs){
+<span class="fc" id="L30">        System.out.println(&quot;\n\n\n&quot;);</span>
+        try{
+<span class="fc bfc" id="L32" title="All 2 branches covered.">            while(rs.next()){</span>
+<span class="fc" id="L33">                System.out.println(&quot;ENTRY NUMBER:=&quot;+rs.getString(&quot;id&quot;));</span>
+<span class="fc" id="L34">                System.out.println(&quot;NAME:=&quot;+rs.getString(&quot;name&quot;));</span>
+<span class="fc" id="L35">                System.out.println(&quot;EMAIL ID:=&quot;+rs.getString(&quot;emailid&quot;));</span>
+<span class="fc" id="L36">                System.out.println(&quot;CONTACT NUMBER:=&quot;+rs.getString(&quot;contact_no&quot;));</span>
+            }
+<span class="nc" id="L38">        }catch(SQLException e){</span>
+<span class="nc" id="L39">            e.printStackTrace();</span>
+<span class="fc" id="L40">        }</span>
+<span class="fc" id="L41">    }</span>
+
+    public static void edit_personal_info(String id,Scanner in,Statement stmt){
+        String name,contact_no;
+<span class="fc" id="L45">        System.out.print(&quot;Enter new name:&quot;);</span>
+<span class="fc" id="L46">        name=in.nextLine();</span>
+<span class="fc" id="L47">        System.out.print(&quot;Enter new contact number:&quot;);</span>
+<span class="fc" id="L48">        contact_no=in.nextLine();</span>
+<span class="fc" id="L49">        String updatequery=&quot;update students set name='&quot;+name+&quot;' ,contact_no='&quot;+contact_no+&quot;' where emailid='&quot;+id+&quot;';&quot;;</span>
+        try{
+<span class="fc" id="L51">            stmt.executeUpdate(updatequery);</span>
+        }
+<span class="nc" id="L53">        catch(SQLException e){</span>
+<span class="nc" id="L54">            e.printStackTrace();</span>
+<span class="fc" id="L55">        }</span>
+<span class="fc" id="L56">    }</span>
+
+    public static void check_graduation(Statement stmt,Connection conn){
+<span class="fc" id="L59">        String extract_students_query=&quot;select * from all_student_data where semester=8;&quot;;</span>
+<span class="fc" id="L60">        Set&lt;String&gt; students_to_be_checked_for_grad=new HashSet&lt;&gt;();</span>
+        try{
+<span class="fc" id="L62">            ResultSet rs=stmt.executeQuery(extract_students_query);</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">            if(!rs.isBeforeFirst()){</span>
+<span class="fc" id="L64">                System.out.println(&quot;Not completed graduation till now&quot;);</span>
+            }
+<span class="fc bfc" id="L66" title="All 2 branches covered.">            while(rs.next()){</span>
+<span class="fc" id="L67">                students_to_be_checked_for_grad.add(rs.getString(&quot;id&quot;));</span>
+            }
+            /*check for each student*/
+<span class="fc" id="L70">            boolean has_btp=false;</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">            for(String s:students_to_be_checked_for_grad){</span>
+<span class="fc" id="L72">                double pc=0.0,ec=0.0,elec=0.0;</span>
+<span class="fc" id="L73">                String query1=&quot;select * from all_student_data where id='&quot;+s+&quot;';&quot;;</span>
+<span class="fc" id="L74">                stmt=conn.createStatement();</span>
+<span class="fc" id="L75">                ResultSet student_rs=stmt.executeQuery(query1);</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">                while(student_rs.next()){</span>
+<span class="fc" id="L77">                    String type=student_rs.getString(&quot;course_type&quot;);</span>
+                    /*get credits of that course*/
+<span class="fc" id="L79">                    Statement stmt2= conn.createStatement();</span>
+<span class="fc" id="L80">                    String query=&quot;select * from course_catalog c where c.courseid='&quot;+student_rs.getString(&quot;courseid&quot;)+&quot;';&quot;;</span>
+<span class="fc" id="L81">                    ResultSet get_credit=stmt2.executeQuery(query);</span>
+<span class="fc" id="L82">                    get_credit.next();</span>
+<span class="fc" id="L83">                    double credits=Double.parseDouble(get_credit.getString(&quot;ltpsc&quot;).split(&quot;-&quot;)[4]);</span>
+<span class="fc" id="L84">                    String[] arr=get_credit.getString(&quot;ltpsc&quot;).split(&quot;-&quot;);</span>
+<span class="fc" id="L85">                    System.out.println(Arrays.toString(arr));</span>
+<span class="fc bfc" id="L86" title="All 2 branches covered.">                    if(type.equalsIgnoreCase(&quot;PC&quot;)){</span>
+<span class="fc" id="L87">                        pc+=credits;</span>
+                    }
+<span class="fc bfc" id="L89" title="All 2 branches covered.">                    else if(type.equalsIgnoreCase(&quot;EC&quot;)){</span>
+<span class="fc" id="L90">                        ec+=credits;</span>
+                    }
+<span class="pc bpc" id="L92" title="1 of 2 branches missed.">                    else if(type.equalsIgnoreCase(&quot;EL&quot;)){</span>
+<span class="fc" id="L93">                        elec+=credits;</span>
+                    }
+<span class="fc" id="L95">                    System.out.println(student_rs.getString(&quot;courseid&quot;)+&quot; &quot;+student_rs.getString(&quot;course_type&quot;)+&quot; &quot;+credits);</span>
+                    /*System.out.println(student_rs.getString(&quot;courseid&quot;));*/
+<span class="fc bfc" id="L97" title="All 2 branches covered.">                    if(student_rs.getString(&quot;courseid&quot;).equalsIgnoreCase(&quot;CP302&quot;)){</span>
+<span class="fc" id="L98">                        has_btp=true;</span>
+                    }
+                    /*--------------------------*/
+<span class="fc" id="L101">                }</span>
+<span class="fc" id="L102">                System.out.println(pc+&quot; &quot;+ec+&quot; &quot;+elec);</span>
+<span class="pc bpc" id="L103" title="2 of 6 branches missed.">                if(pc&lt;20.0 || ec&lt;20.0 || elec&lt;20.0){</span>
+<span class="fc" id="L104">                    System.out.println(&quot;Student &quot;+s+&quot; is not eligible for graduation&quot;);</span>
+                }
+                else{
+<span class="fc bfc" id="L107" title="All 2 branches covered.">                    if(has_btp) {</span>
+<span class="fc" id="L108">                        System.out.println(&quot;Student &quot; + s + &quot; is eligible for graduation&quot;);</span>
+                    }
+                    else{
+<span class="fc" id="L111">                        System.out.println(&quot;Student has not completed the btp!&quot;);</span>
+                    }
+                }
+<span class="fc" id="L114">            }</span>
+<span class="nc" id="L115">        }catch(SQLException e){</span>
+<span class="nc" id="L116">            e.printStackTrace();</span>
+<span class="fc" id="L117">        }</span>
+<span class="fc" id="L118">    }</span>
+
+    public static int get_current_semester(String curr_session,String email){
+        /*first look for current program cores and engineering cores for this semester for a given student*/
+        /*find current semester for the student*/
+<span class="fc" id="L123">        String student_start_string=email.substring(0,4),curr_year_string=curr_session.substring(0,4);</span>
+<span class="fc" id="L124">        int student_start=Integer.parseInt(student_start_string),curr_year=Integer.parseInt(curr_year_string),curr_semester;</span>
+<span class="fc" id="L125">        curr_semester=(curr_year-student_start+1)*2;</span>
+<span class="fc" id="L126">        System.out.println(&quot;current session bhai=&quot;+curr_session);</span>
+<span class="pc bpc" id="L127" title="1 of 2 branches missed.">        if(curr_session.charAt(5)=='1'){</span>
+<span class="fc" id="L128">            curr_semester--;</span>
+        }
+<span class="fc" id="L130">        return curr_semester;</span>
+    }
+
+    public static void display_all_pc(String dept,int sem,Statement stmt,int batch,String session,Connection conn){
+<span class="fc" id="L134">        System.out.println(&quot;\n\n\nPR0GRAM CORE AVAILABLE FOR THIS SEMESTER&quot;);</span>
+<span class="fc" id="L135">        System.out.println(&quot;SUBJECT  INSTRUCTOR-ID  SESSION   CGPA_CONSTRAINT&quot;);</span>
+<span class="fc" id="L136">        String query=&quot;select * from program_core where req_sem=&quot;+sem+&quot; and department='&quot;+dept+&quot;' and batch=&quot;+batch+&quot;;&quot;;</span>
+        /*System.out.println(query);*/
+        ResultSet rs;
+<span class="fc" id="L139">        ArrayList &lt;String&gt; program_cores=new ArrayList &lt;String&gt;();</span>
+        try{
+<span class="fc" id="L141">            rs=stmt.executeQuery(query);</span>
+<span class="fc bfc" id="L142" title="All 2 branches covered.">            while(rs.next()){</span>
+                /*System.out.println(rs.getString(&quot;course_id&quot;)+&quot; &quot;+rs.getString(&quot;department&quot;));*/
+<span class="fc" id="L144">                program_cores.add(rs.getString(&quot;course_id&quot;));</span>
+            }
+<span class="fc bfc" id="L146" title="All 2 branches covered.">            for(String s:program_cores){</span>
+<span class="fc" id="L147">                stmt=conn.createStatement();</span>
+                /*System.out.print(s+&quot; &quot;);*/
+                /*this course should be present in course offering*/
+<span class="fc" id="L150">                ResultSet rs_if_offered=stmt.executeQuery(&quot;select * from courses_offered where courseid='&quot;+s+&quot;' and session='&quot;+session+&quot;';&quot;);</span>
+<span class="fc" id="L151">                rs_if_offered.next();</span>
+<span class="fc" id="L152">                System.out.println(rs_if_offered.getString(&quot;courseid&quot;)+&quot; &quot;+rs_if_offered.getString(&quot;instructorid&quot;)+&quot; &quot;+rs_if_offered.getString(&quot;session&quot;)+&quot; &quot;+rs_if_offered.getString(&quot;cg_constraint&quot;));</span>
+<span class="fc" id="L153">            }</span>
+<span class="fc" id="L154">            System.out.println();</span>
+<span class="fc" id="L155">        }catch(SQLException e){</span>
+<span class="fc" id="L156">            e.printStackTrace();</span>
+<span class="fc" id="L157">        }</span>
+<span class="fc" id="L158">    }</span>
+
+    public static void display_all_ec(int sem,Statement stmt,int batch,Connection conn,String session){
+<span class="fc" id="L161">        System.out.println(&quot;\n\n\nENGINEERING CORE AVAILABLE FOR THIS SEMESTER:&quot;);</span>
+<span class="fc" id="L162">        System.out.println(&quot;SUBJECT  INSTRUCTOR-ID  SESSION   CGPA_CONSTRAINT&quot;);</span>
+<span class="fc" id="L163">        String query=&quot;select * from engineering_core where req_sem=&quot;+sem+&quot; and batch=&quot;+batch+&quot;;&quot;;</span>
+        /*System.out.println(query);*/
+        ResultSet rs;
+<span class="fc" id="L166">        ArrayList &lt;String&gt; engineering_cores=new ArrayList &lt;String&gt;();</span>
+        try{
+<span class="fc" id="L168">            rs=stmt.executeQuery(query);</span>
+<span class="fc bfc" id="L169" title="All 2 branches covered.">            while(rs.next()){</span>
+                /*System.out.println(rs.getString(&quot;course_id&quot;));*/
+<span class="fc" id="L171">                engineering_cores.add(rs.getString(&quot;course_id&quot;));</span>
+            }
+<span class="fc bfc" id="L173" title="All 2 branches covered.">            for(String s:engineering_cores){</span>
+                /*System.out.print(s+&quot; &quot;);*/
+<span class="fc" id="L175">                stmt=conn.createStatement();</span>
+<span class="fc" id="L176">                ResultSet rs_if_offered=stmt.executeQuery(&quot;select * from courses_offered where courseid='&quot;+s+&quot;' and session='&quot;+session+&quot;';&quot;);</span>
+<span class="fc" id="L177">                rs_if_offered.next();</span>
+<span class="fc" id="L178">                System.out.println(rs_if_offered.getString(&quot;courseid&quot;)+&quot; &quot;+rs_if_offered.getString(&quot;instructorid&quot;)+&quot; &quot;+rs_if_offered.getString(&quot;session&quot;)+&quot; &quot;+rs_if_offered.getString(&quot;cg_constraint&quot;));</span>
+<span class="fc" id="L179">            }</span>
+<span class="fc" id="L180">            System.out.println();</span>
+<span class="nc" id="L181">        }catch(SQLException e){</span>
+<span class="nc" id="L182">            e.printStackTrace();</span>
+<span class="fc" id="L183">        }</span>
+<span class="fc" id="L184">    }</span>
+
+    public static double calculate_sgpa(Statement stmt,String id,String session,Connection conn){
+        /**/
+<span class="fc" id="L188">        grades_init();</span>
+        ResultSet rs;
+<span class="fc" id="L190">        double tot_reg_credits=0.0,score=0.0;</span>
+        try{
+<span class="fc" id="L192">            stmt=conn.createStatement();</span>
+<span class="fc" id="L193">            rs=stmt.executeQuery(&quot;select * from all_student_data d,course_catalog c where d.id='&quot;+id+&quot;' and d.session='&quot;+session+&quot;' and c.courseid=d.courseid and grade&lt;&gt;'NA';&quot;);</span>
+<span class="fc bfc" id="L194" title="All 2 branches covered.">            if(!rs.isBeforeFirst()){</span>
+<span class="fc" id="L195">                System.out.println(&quot;Student didn't did any course in the session &quot;+session);</span>
+            }
+            else{
+<span class="fc bfc" id="L198" title="All 2 branches covered.">                while(rs.next()){</span>
+<span class="fc" id="L199">                    String[] ltpsc_array=rs.getString(&quot;ltpsc&quot;).split(&quot;-&quot;);</span>
+<span class="fc" id="L200">                    double curr_credit=Double.parseDouble(ltpsc_array[4]);</span>
+<span class="fc" id="L201">                    tot_reg_credits+=curr_credit;</span>
+<span class="fc" id="L202">                    score+=(curr_credit*grades_score.get(rs.getString(&quot;grade&quot;)));</span>
+<span class="fc" id="L203">                }</span>
+<span class="fc" id="L204">                return  (score/tot_reg_credits);</span>
+            }
+<span class="pc" id="L206">        }catch(SQLException e){e.printStackTrace();}</span>
+<span class="fc" id="L207">        return 0.0;</span>
+    }
+
+    public static double calculate_cgpa(Statement stmt,String id,String session,Connection conn){
+<span class="fc" id="L211">        id=id.substring(0,11).toUpperCase();</span>
+<span class="fc" id="L212">        grades_init();</span>
+        ResultSet rs;
+<span class="fc" id="L214">        double tot_earned_credits=0.0,score=0.0;</span>
+        try{
+<span class="fc" id="L216">            stmt=conn.createStatement();</span>
+<span class="fc" id="L217">            rs=stmt.executeQuery(&quot;select * from all_student_data d,course_catalog c where d.id='&quot;+id+&quot;' and c.courseid=d.courseid and grade&lt;&gt;'NA';&quot;);</span>
+<span class="pc bpc" id="L218" title="1 of 2 branches missed.">            if(!rs.isBeforeFirst()){</span>
+<span class="nc" id="L219">                System.out.println(&quot;Student didn't did any course in the session &quot;+session);</span>
+            }
+            else{
+<span class="fc bfc" id="L222" title="All 2 branches covered.">                while(rs.next()){</span>
+<span class="fc" id="L223">                    String[] ltpsc_array=rs.getString(&quot;ltpsc&quot;).split(&quot;-&quot;);</span>
+<span class="fc" id="L224">                    double curr_credit=Double.parseDouble(ltpsc_array[4]);</span>
+<span class="pc bpc" id="L225" title="1 of 2 branches missed.">                    if(!rs.getString(&quot;ltpsc&quot;).equalsIgnoreCase(&quot;F&quot;))  tot_earned_credits+=curr_credit;</span>
+<span class="fc" id="L226">                    String gr=rs.getString(&quot;grade&quot;);</span>
+<span class="fc" id="L227">                    score+=(curr_credit*grades_score.get(rs.getString(&quot;grade&quot;)));</span>
+<span class="fc" id="L228">                }</span>
+<span class="fc" id="L229">                return  (score/tot_earned_credits);</span>
+            }
+<span class="nc" id="L231">        }catch(SQLException e){e.printStackTrace();}</span>
+<span class="nc" id="L232">        return 0.0;</span>
+    }
+
+    public static void enter_in_instructor_csv(String id,String courseid,String session,String instructor_id){
+<span class="fc" id="L236">        String[] ins_name=instructor_id.split(&quot;@&quot;);</span>
+<span class="fc" id="L237">        String file_path=dir_path+&quot;/&quot;+ins_name[0]+&quot;.csv&quot;;</span>
+<span class="fc" id="L238">        try (CSVWriter writer = new CSVWriter(new FileWriter(file_path,true))) {</span>
+<span class="fc" id="L239">            String[] data = {session,id,courseid,&quot;NA&quot;};</span>
+<span class="fc" id="L240">            writer.writeNext(data);</span>
+<span class="nc" id="L241">        } catch (IOException e) {</span>
+<span class="nc" id="L242">            System.out.println(&quot;Error writing to CSV file: &quot; + e.getMessage());</span>
+<span class="fc" id="L243">        }</span>
+<span class="fc" id="L244">    }</span>
+
+    public static void register_core_courses(String email,Statement stmt,int sem,String dept,int batch,Connection conn,String session,int mode){
+<span class="fc" id="L247">        String id=email.substring(0,11).toUpperCase(),query;</span>
+        /*System.out.println(&quot;CURRENT CGPA=&quot;+calculate_cgpa(stmt,id,session,conn));*/
+<span class="fc" id="L249">        String type=&quot;&quot;;</span>
+<span class="fc bfc" id="L250" title="All 2 branches covered.">        if(mode == 1) {</span>
+<span class="fc" id="L251">            query = &quot;select * from program_core where req_sem=&quot; + sem + &quot; and department='&quot; + dept + &quot;' and batch=&quot; + batch + &quot;;&quot;;</span>
+<span class="fc" id="L252">            type=&quot;PC&quot;;</span>
+        }
+        else {
+<span class="fc" id="L255">            query = &quot;select * from engineering_core where req_sem=&quot; + sem + &quot; and batch=&quot; + batch + &quot;;&quot;;</span>
+<span class="fc" id="L256">            type=&quot;EC&quot;;</span>
+        }
+        /*System.out.println(id+&quot; &quot;+query);*/
+        try{
+<span class="fc" id="L260">            ResultSet rs=stmt.executeQuery(query);</span>
+<span class="fc bfc" id="L261" title="All 2 branches covered.">            while(rs.next())/*for all cores, I will check whether he satisfies all the requirements*/{</span>
+<span class="fc" id="L262">                stmt=conn.createStatement();</span>
+<span class="fc" id="L263">                String core_course=rs.getString(&quot;course_id&quot;);</span>
+                /*search for core_courese in course catalog*/
+<span class="fc" id="L265">                ResultSet course_in_catalog=stmt.executeQuery(&quot;select * from course_catalog where courseid='&quot;+core_course+&quot;';&quot;);</span>
+<span class="fc" id="L266">                course_in_catalog.next();</span>
+<span class="fc" id="L267">                Array pre_req= course_in_catalog.getArray(&quot;prerequisites&quot;);</span>
+<span class="fc" id="L268">                String []pre_req_array=(String[]) pre_req.getArray();</span>
+<span class="fc" id="L269">                int count=0,f=0;</span>
+<span class="fc bfc" id="L270" title="All 2 branches covered.">                if(!pre_req_array[0].equalsIgnoreCase(&quot;NIL&quot;)){</span>
+<span class="fc" id="L271">                    f=1;</span>
+<span class="fc bfc" id="L272" title="All 2 branches covered.">                    for (String s : pre_req_array) {</span>
+<span class="fc" id="L273">                        stmt = conn.createStatement();</span>
+                        /*find the pre_req in all_student_data*/
+<span class="fc" id="L275">                        ResultSet check_pre_req = stmt.executeQuery(&quot;select * from all_student_data where id='&quot; + id + &quot;' and courseid='&quot; + s + &quot;' and grade&lt;&gt;'F';&quot;);</span>
+<span class="fc bfc" id="L276" title="All 2 branches covered.">                        if (check_pre_req.isBeforeFirst()) {</span>
+<span class="fc" id="L277">                            count++;</span>
+                        } else {
+<span class="fc" id="L279">                            System.out.println(&quot;Prerequisite &quot; + s + &quot; not satisfied.&quot;);</span>
+<span class="fc" id="L280">                            continue;</span>
+                        }
+                    }
+                }
+<span class="pc bpc" id="L284" title="1 of 6 branches missed.">                if(f == 0 || (f == 1 &amp;&amp; count==pre_req_array.length)){</span>
+                    /*register the core courses*/
+<span class="fc" id="L286">                    stmt=conn.createStatement();</span>
+<span class="fc" id="L287">                    String check_query=&quot;select * from all_student_data where id='&quot;+id+&quot;' and courseid='&quot;+core_course+&quot;' and grade&lt;&gt;'F';&quot;;</span>
+<span class="fc" id="L288">                    ResultSet check_if_course_already_completed=stmt.executeQuery(check_query);</span>
+<span class="fc bfc" id="L289" title="All 2 branches covered.">                    if(check_if_course_already_completed.isBeforeFirst()){</span>
+<span class="fc" id="L290">                        System.out.println(&quot;Course &quot;+core_course+&quot; already completed or you are registered in it.&quot;);</span>
+                    }
+                    else{
+                        /*check whether the course is offered or not*/
+<span class="fc" id="L294">                        stmt=conn.createStatement();</span>
+<span class="fc" id="L295">                        ResultSet check_if_course_offered=stmt.executeQuery(&quot;select * from courses_offered where courseid='&quot;+core_course+&quot;' and session='&quot;+session+&quot;';&quot;);</span>
+<span class="fc bfc" id="L296" title="All 2 branches covered.">                        if(check_if_course_offered.isBeforeFirst()){</span>
+<span class="fc" id="L297">                            stmt=conn.createStatement();</span>
+                            String register_query,record_query;
+<span class="fc" id="L299">                            check_if_course_offered.next();</span>
+<span class="fc" id="L300">                            String instructor_id=check_if_course_offered.getString(&quot;instructorid&quot;);</span>
+                            /*check CG constraint*/
+<span class="fc" id="L302">                            double cg_constraint=check_if_course_offered.getDouble(&quot;cg_constraint&quot;);</span>
+<span class="fc" id="L303">                            double current_cgpa=calculate_cgpa(stmt,id,session,conn);</span>
+<span class="fc bfc" id="L304" title="All 2 branches covered.">                            if(current_cgpa&lt;cg_constraint) {</span>
+<span class="fc" id="L305">                                System.out.println(&quot;You are failing CGPA requirements,hence you can't register in the course &quot;+core_course);</span>
+<span class="fc" id="L306">                                continue;</span>
+                            }
+<span class="fc" id="L308">                            register_query=&quot;insert into all_student_data values('&quot;+id+&quot;','&quot;+session+&quot;',&quot;+batch+&quot;,'&quot;+core_course+&quot;','NA',&quot;+sem+&quot;,'&quot;+type+&quot;');&quot;;</span>
+                            /*System.out.println(register_query);*/
+<span class="fc" id="L310">                            enter_in_instructor_csv(id,core_course,session,instructor_id);</span>
+<span class="fc" id="L311">                            stmt.executeUpdate(register_query);</span>
+<span class="fc" id="L312">                        }</span>
+                        else{
+<span class="fc" id="L314">                            System.out.println(&quot;The course &quot;+ core_course+&quot; is not yet offered.&quot;);</span>
+                        }
+                    }
+                }
+<span class="fc" id="L318">            }</span>
+<span class="nc" id="L319">        }catch(SQLException e){</span>
+<span class="nc" id="L320">            e.printStackTrace();</span>
+<span class="fc" id="L321">        }</span>
+<span class="fc" id="L322">    }</span>
+
+    public static double return_earned_credits_in_sem(String id,String session,int batch,Statement stmt,Connection conn){
+        /*System.out.println(&quot;yo bhai&quot;);*/
+        ResultSet rs,rs_ltpsc;
+        String course,ltpsc;
+<span class="fc" id="L328">        double tot_credits=0.0;</span>
+        try{
+<span class="fc" id="L330">            rs=stmt.executeQuery(&quot;select * from all_student_data where id='&quot;+id+&quot;' and session='&quot;+session+&quot;' and batch=&quot;+batch+&quot;;&quot;);</span>
+<span class="fc bfc" id="L331" title="All 2 branches covered.">            while(rs.next()){</span>
+<span class="fc" id="L332">                stmt=conn.createStatement();</span>
+                //System.out.println(rs.getString(&quot;id&quot;)+&quot; &quot;+rs.getString(&quot;session&quot;)+&quot; &quot;+rs.getString(&quot;batch&quot;)+&quot; &quot;+rs.getString(&quot;courseid&quot;)+&quot; &quot;+rs.getString(&quot;grade&quot;)+&quot; &quot;+rs.getString(&quot;semester&quot;));
+                /*bring LTPSC from course catalog*/
+<span class="fc" id="L335">                course=rs.getString(&quot;courseid&quot;);</span>
+<span class="fc" id="L336">                rs_ltpsc=stmt.executeQuery(&quot;select * from course_catalog where courseid='&quot;+course+&quot;';&quot;);</span>
+<span class="fc" id="L337">                rs_ltpsc.next();</span>
+<span class="fc" id="L338">                ltpsc=rs_ltpsc.getString(&quot;ltpsc&quot;);</span>
+<span class="fc" id="L339">                String[] ltpsc_array=ltpsc.split(&quot;-&quot;);</span>
+<span class="fc" id="L340">                double credit=Double.parseDouble(ltpsc_array[4]);</span>
+<span class="fc" id="L341">                tot_credits+=credit;</span>
+<span class="fc" id="L342">            }</span>
+<span class="nc" id="L343">        }catch(SQLException e){</span>
+<span class="nc" id="L344">            e.printStackTrace();</span>
+<span class="fc" id="L345">        }</span>
+<span class="fc" id="L346">        return tot_credits;</span>
+    }
+
+    public static void register_electives(String email,Statement stmt,int sem,String dept,int batch,Connection conn,String session,Scanner in){
+        /*calculate the remaining credits for electives, first calculate credits for previous two sessions*/
+        /**/
+<span class="fc" id="L352">        String id=email.substring(0,11).toUpperCase(),query;</span>
+<span class="fc" id="L353">        int year=Integer.parseInt(session.substring(0,4)),number=Integer.parseInt(session.substring(5));</span>
+<span class="fc" id="L354">        String prev_session=&quot;&quot;,prev_prev_session=&quot;&quot;;</span>
+<span class="fc bfc" id="L355" title="All 2 branches covered.">        if(number == 1){</span>
+<span class="fc" id="L356">            prev_session=Integer.toString(year-1)+&quot;-2&quot;;</span>
+<span class="fc" id="L357">            prev_prev_session=Integer.toString(year-1)+&quot;-1&quot;;</span>
+        }
+<span class="pc bpc" id="L359" title="1 of 2 branches missed.">        else if(number == 2){</span>
+<span class="fc" id="L360">            prev_session=Integer.toString(year)+&quot;-1&quot;;</span>
+<span class="fc" id="L361">            prev_prev_session=Integer.toString(year-1)+&quot;-2&quot;;</span>
+        }
+        /*credits in previous semester */
+
+<span class="fc" id="L365">        double prev_credits=return_earned_credits_in_sem(id,prev_session,batch,stmt,conn),prev_prev_credit=return_earned_credits_in_sem(id,prev_prev_session,batch,stmt,conn),total_credits=0.0;</span>
+<span class="fc" id="L366">        total_credits=Math.ceil(((prev_credits+prev_prev_credit)/2.0)*1.25);</span>
+<span class="fc" id="L367">        double reg_cred=return_earned_credits_in_sem(id,session,batch,stmt,conn);</span>
+<span class="fc" id="L368">        System.out.println(&quot;Total Available credits in this sem:&quot;+total_credits);</span>
+<span class="fc" id="L369">        System.out.println(&quot;Credits registered till now:&quot;+reg_cred);</span>
+<span class="fc" id="L370">        System.out.println(&quot;Available credits for electives&quot;+(total_credits-reg_cred));</span>
+        /*check all the floated electives*/
+        try{
+<span class="fc" id="L373">            ResultSet electives_stated_by_acads=stmt.executeQuery(&quot;select * from elective;&quot;);</span>
+<span class="fc" id="L374">            ArrayList&lt;String&gt; elec_acad=new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L375">            ArrayList&lt;String&gt; elec_available=new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L376" title="All 2 branches covered.">            while(electives_stated_by_acads.next()){</span>
+<span class="fc" id="L377">                elec_acad.add(electives_stated_by_acads.getString(&quot;course_id&quot;));</span>
+            }
+<span class="fc bfc" id="L379" title="All 2 branches covered.">            for(String s:elec_acad){</span>
+<span class="fc" id="L380">                stmt=conn.createStatement();</span>
+<span class="fc" id="L381">                ResultSet check_if_offered=stmt.executeQuery(&quot;select * from courses_offered where courseid='&quot;+s+&quot;';&quot;);</span>
+<span class="fc bfc" id="L382" title="All 2 branches covered.">                if(check_if_offered.isBeforeFirst()){</span>
+<span class="fc" id="L383">                    elec_available.add(s);</span>
+                }
+<span class="fc" id="L385">            }</span>
+<span class="fc bfc" id="L386" title="All 2 branches covered.">            for(String s:elec_available){</span>
+<span class="fc" id="L387">                System.out.println(s);</span>
+<span class="fc" id="L388">            }</span>
+<span class="fc bfc" id="L389" title="All 2 branches covered.">            if(elec_available.size()==0){</span>
+<span class="fc" id="L390">                System.out.println(&quot;No elective courses are offered by the faculty&quot;);</span>
+<span class="fc" id="L391">                return;</span>
+            }
+            String elective_course;
+            do{
+<span class="fc" id="L395">                System.out.println(&quot;Press -1 to exit or 0 to continue&quot;);</span>
+                /*System.out.println(&quot;ashish&quot;+inp);*/
+<span class="fc" id="L397">                int ash=in.nextInt();</span>
+<span class="fc bfc" id="L398" title="All 2 branches covered.">                if(ash==-1){return;}</span>
+<span class="pc bpc" id="L399" title="1 of 2 branches missed.">                else if (ash!=0){continue;}</span>
+<span class="fc" id="L400">                System.out.print(&quot;Enter Elective course:&quot;);</span>
+<span class="fc" id="L401">                elective_course=in.next();</span>
+<span class="fc bfc" id="L402" title="All 2 branches covered.">                if(elec_available.contains(elective_course)){</span>
+<span class="fc" id="L403">                    stmt=conn.createStatement();</span>
+<span class="fc" id="L404">                    stmt.executeUpdate(&quot;insert into all_student_data values('&quot;+id+&quot;','&quot;+session+&quot;',&quot;+batch+&quot;,'&quot;+elective_course+&quot;','NA',&quot;+sem+&quot;,'EL');&quot;);</span>
+                }
+                else{
+<span class="fc" id="L407">                    System.out.println(&quot;The entered elective course is not present in offered electives&quot;);</span>
+                }
+<span class="fc" id="L409">            }while(true);</span>
+
+<span class="nc" id="L411">        }catch(SQLException e){}</span>
+<span class="nc" id="L412">    }</span>
+
+    /*
+    * sem 1-&gt; 6
+    * sem 2-&gt; 6
+    * sem 3-&gt; 7.5
+    * sem 4-&gt; 8
+    * sem 5-&gt;
+    * */
+
+    /*
+    * sem1=6
+    * sem2=6
+    * sem3=*/
+
+    public static void add_drop(Statement stmt,String email,String password,Connection conn,Scanner in){
+        /*check whether add/drop allowed for a semester*/
+        ResultSet rs_if_current_sem,rs_student;
+<span class="fc" id="L430">        String id=email.substring(0,11).toUpperCase();</span>
+        /*current semester,courses_add_drop*/
+        try{
+<span class="fc" id="L433">            rs_if_current_sem=stmt.executeQuery(&quot;select * from event_table_acads where (current_sem='Y' or current_sem='y') and (courses_add_drop='Y' or courses_add_drop='y');&quot;);</span>
+<span class="fc bfc" id="L434" title="All 2 branches covered.">            if(rs_if_current_sem.isBeforeFirst()){</span>
+<span class="fc" id="L435">                System.out.println(&quot;sem present&quot;);</span>
+                /*there is a semester currently running*/
+<span class="fc" id="L437">                String session=&quot;&quot;;</span>
+<span class="fc bfc" id="L438" title="All 2 branches covered.">                while(rs_if_current_sem.next()){</span>
+<span class="fc" id="L439">                    session=rs_if_current_sem.getString(&quot;session&quot;);</span>
+                }
+<span class="fc" id="L441">                System.out.println(&quot;current session bhai=&quot;+session);</span>
+<span class="fc" id="L442">                int current_semester=get_current_semester(session,email);</span>
+                /*pc and ec in this semester and this branch*/
+
+<span class="fc" id="L445">                String department=&quot;&quot;; /*student branch-&gt;department*/</span>
+<span class="fc" id="L446">                stmt = conn.createStatement();</span>
+<span class="fc" id="L447">                rs_student=stmt.executeQuery(&quot;select * from students where emailid='&quot;+email+&quot;' and password='&quot;+password+&quot;';&quot;);</span>
+
+<span class="fc bfc" id="L449" title="All 2 branches covered.">                while(rs_student.next()){</span>
+<span class="fc" id="L450">                    department=rs_student.getString(&quot;department&quot;);</span>
+                }
+
+<span class="fc" id="L453">                int batch=Integer.parseInt(email.substring(0,4));</span>
+<span class="fc" id="L454">                display_all_pc(department,current_semester,stmt,batch,session,conn);</span>
+<span class="fc" id="L455">                stmt=conn.createStatement();</span>
+<span class="fc" id="L456">                display_all_ec(current_semester,stmt,batch,conn,session);</span>
+                /*now register all program core and engineering core*/
+<span class="fc" id="L458">                register_core_courses(email,stmt,current_semester,department,batch,conn,session,1);</span>
+<span class="fc" id="L459">                register_core_courses(email,stmt,current_semester,department,batch,conn,session,2);</span>
+<span class="fc" id="L460">                System.out.println(&quot;Total registered credits for this session=&quot;+return_earned_credits_in_sem(id,session,batch,stmt,conn));</span>
+<span class="pc bpc" id="L461" title="2 of 4 branches missed.">                if(current_semester == 1 || current_semester == 2) return ;</span>
+                /*register for elective courses*/
+                //register_electives(email,stmt,current_semester,department,batch,conn,session,in);
+<span class="fc" id="L464">            }</span>
+            else{
+<span class="fc" id="L466">                System.out.println(&quot;No semester is currently running or the course add/drop is not yet allowed&quot;);</span>
+            }
+        }
+<span class="pc" id="L469">        catch(SQLException e){e.printStackTrace();}</span>
+<span class="fc" id="L470">    }</span>
+
+
+
+    public static int student_login_front_end(Scanner in,Statement stmt,String email,String password,Connection conn){
+<span class="fc" id="L475">        Statement stmt1=stmt;</span>
+<span class="fc" id="L476">        int t=0,ch=0;</span>
+<span class="fc" id="L477">        ResultSet rs=null;</span>
+<span class="fc" id="L478">        System.out.println(&quot;----STUDENT LOGIN----&quot;);</span>
+<span class="fc" id="L479">        System.out.println(&quot;Press 1=To view records up to current semester&quot;);</span>
+<span class="fc" id="L480">        System.out.println(&quot;Press 2=To view current CGPA&quot;);</span>
+<span class="fc" id="L481">        System.out.println(&quot;Press 3=To register for current semester&quot;);</span>
+<span class="fc" id="L482">        System.out.println(&quot;Press 4=To view personal information&quot;);</span>
+<span class="fc" id="L483">        System.out.println(&quot;Press 5=Edit personal information&quot;);</span>
+<span class="fc" id="L484">        System.out.println(&quot;Press 6=To check the list of eligible students for graduation&quot;);</span>
+<span class="fc" id="L485">        System.out.print(&quot;Enter your choice:&quot;);</span>
+<span class="fc" id="L486">        ch=in.nextInt();</span>
+<span class="fc" id="L487">        in.nextLine();</span>
+<span class="fc" id="L488">        System.out.println(&quot;bhai choice=&quot;+ch);</span>
+        try{
+<span class="fc" id="L490">            String query=&quot;select * from students where emailid='&quot;+email+&quot;' and password='&quot;+password+&quot;';&quot;;</span>
+<span class="fc" id="L491">            rs=stmt.executeQuery(query);</span>
+<span class="nc" id="L492">        }catch(SQLException e){</span>
+<span class="nc" id="L493">            e.printStackTrace();</span>
+<span class="fc" id="L494">        }</span>
+<span class="fc bfc" id="L495" title="All 2 branches covered.">        if(ch==4){</span>
+            /*view all records*/
+<span class="fc" id="L497">            view_personal_info(stmt,email,password,rs);</span>
+        }
+<span class="fc bfc" id="L499" title="All 2 branches covered.">        else if(ch==2){</span>
+            try{
+<span class="fc" id="L501">                ResultSet rs_bhai=stmt.executeQuery(&quot;select * from event_table_acads;&quot;);</span>
+<span class="fc" id="L502">                rs_bhai.next();</span>
+<span class="fc" id="L503">                System.out.println(&quot;YOur current CGPA is:&quot;+calculate_cgpa(stmt,email,rs_bhai.getString(&quot;session&quot;),conn));</span>
+<span class="nc" id="L504">            }catch(SQLException e){</span>
+<span class="nc" id="L505">                e.printStackTrace();</span>
+<span class="pc" id="L506">            }</span>
+        }
+<span class="fc bfc" id="L508" title="All 2 branches covered.">        else if(ch==3){</span>
+<span class="fc" id="L509">            add_drop(stmt,email,password,conn,in);</span>
+        }
+<span class="fc bfc" id="L511" title="All 2 branches covered.">        else if(ch==1){</span>
+<span class="fc" id="L512">            System.out.println(&quot;Record generated as a transcript in Transcript folder&quot;);</span>
+            try{
+<span class="fc" id="L514">                ResultSet rs_session=stmt.executeQuery(&quot;select * from event_table_acads;&quot;);</span>
+<span class="fc" id="L515">                rs_session.next();</span>
+<span class="fc" id="L516">                Generate_Transcript.transcript(email.substring(0,11).toUpperCase(),stmt,conn,rs_session.getString(&quot;session&quot;),3);</span>
+<span class="nc" id="L517">            }catch(SQLException e){} catch (IOException e) {</span>
+<span class="nc" id="L518">                throw new RuntimeException(e);</span>
+<span class="pc" id="L519">            }</span>
+
+        }
+<span class="fc bfc" id="L522" title="All 2 branches covered.">        else if(ch==5){</span>
+<span class="fc" id="L523">            edit_personal_info(email,in,stmt);</span>
+        }
+<span class="pc bpc" id="L525" title="1 of 2 branches missed.">        else if(ch==6){</span>
+            try{
+<span class="fc" id="L527">                stmt=conn.createStatement();</span>
+<span class="nc" id="L528">            }catch(SQLException e){</span>
+<span class="nc" id="L529">                e.printStackTrace();</span>
+<span class="fc" id="L530">            }</span>
+<span class="fc" id="L531">            check_graduation(stmt,conn);</span>
+        }
+<span class="fc" id="L533">        System.out.print(&quot;Press 1 to go back to login page else 0 to continue:&quot;);</span>
+<span class="fc" id="L534">        t=in.nextInt();</span>
+<span class="fc" id="L535">        System.out.println(&quot;Exit choice=&quot;+t);</span>
+<span class="fc" id="L536">        return t;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

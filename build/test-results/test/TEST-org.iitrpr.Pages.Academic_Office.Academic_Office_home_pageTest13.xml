@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.iitrpr.Pages.Academic_Office.Academic_Office_home_pageTest13" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-03-09T15:29:19" hostname="nishant" time="0.335">
+  <properties/>
+  <testcase name="academic_login_front_end_6()" classname="org.iitrpr.Pages.Academic_Office.Academic_Office_home_pageTest13" time="0.335"/>
+  <system-out><![CDATA[----ACADEMIC OFFICE LOGIN----
+Press 1=View grade of all students
+Press 2=To edit the course catalog(add or remove new courses)
+Press 3=To generate transcripts of students
+Press 4=To add a session information, whether to allow course registration,grade submission
+Press 5=To specify a course for current session and its type
+Enter your choice:mera choice=5
+Program cores added for this semester successfully!
+Engineering cores added for this semester successfully!
+Electives added for this semester successfully!
+Press 1 to go back to login page else 0 to continue:]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

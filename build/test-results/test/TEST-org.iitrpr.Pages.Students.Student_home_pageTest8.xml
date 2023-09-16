@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.iitrpr.Pages.Students.Student_home_pageTest8" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-03-09T15:29:28" hostname="nishant" time="0.076">
+  <properties/>
+  <testcase name="register_electives()" classname="org.iitrpr.Pages.Students.Student_home_pageTest8" time="0.076"/>
+  <system-out><![CDATA[Total Available credits in this sem:8.0
+Credits registered till now:0.0
+Available credits for electives8.0
+GE105
+Press -1 to exit or 0 to continue
+Enter Elective course:The entered elective course is not present in offered electives
+Press -1 to exit or 0 to continue
+Enter Elective course:Press -1 to exit or 0 to continue
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

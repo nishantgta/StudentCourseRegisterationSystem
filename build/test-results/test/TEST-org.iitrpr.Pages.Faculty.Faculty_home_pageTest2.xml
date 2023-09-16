@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.iitrpr.Pages.Faculty.Faculty_home_pageTest2" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-03-09T15:29:22" hostname="nishant" time="0.015">
+  <properties/>
+  <testcase name="faculty_login_front_end()" classname="org.iitrpr.Pages.Faculty.Faculty_home_pageTest2" time="0.015"/>
+  <system-out><![CDATA[----FACULTY LOGIN----
+Press 1=View grade of all students
+Press 2=Register the courses
+Press 3=Deregister the courses
+Press 4=Update course grade for students
+Press 5=To generate transcript
+Enter your choice:Enter student Entry Number:Invalid student ID
+Press 1 to go back to login page else 0 to continue:Value of t=1
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

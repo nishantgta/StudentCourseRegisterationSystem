@@ -1,0 +1,99 @@
+create table departments(
+department varchar,
+primary key(department)
+);
+
+create table students(
+id char(11) ,
+emailid varchar,
+batch integer,
+name varchar,
+department varchar,
+password varchar,
+contact_no char(10),
+primary key(id),
+constraint id_check check(id ~ '^[0-9a-zA-Z]{11}$'),
+constraint contact_check check(contact_no ~ '^[1-9]{1}[0-9]{9}$'));
+
+create table course_catalog(
+CourseId char(5),
+name varchar,
+department varchar,
+ltpsc varchar,
+prerequisites varchar[],
+primary key(courseid),
+foreign key (department) references departments(department),
+constraint courseid_check check(courseid ~ '^[0-9a-zA-Z]{5}$'));
+
+create table courses_offered(
+courseid char(5),
+instructorid varchar,
+session varchar,
+cg_constraint numeric default 0.00,
+foreign key(courseid) references course_catalog(courseid),
+constraint courseid_check check(courseid ~ '^[0-9a-zA-Z]{5}$'));
+
+create table faculty(
+emailid varchar,
+name varchar,
+department varchar,
+password varchar);
+
+create table academic_office(
+emailid varchar,
+name varchar,
+job varchar,
+password varchar);
+
+create table student_courses_registered(
+student_id char(11),
+name varchar,
+courseid varchar,
+session varchar,
+foreign key(courseid) references course_catalog(courseid),
+foreign key(student_id) references students(id),
+constraint id_check check(student_id ~ '^[0-9a-zA-Z]{11}$'));
+
+create table event_table_acads(
+session varchar,
+current_sem char(1) ,
+courses_float char(1),
+courses_add_drop char(1),
+grade_submission char(1),
+constraint add_drop check(courses_add_drop ~ '^[YNny0]{1}$'),
+constraint grade check(grade_submission ~ '^[YNny0]{1}$'),
+constraint curr_sem check(current_sem ~ '^[YNny]{1}$'),
+constraint courses_float check(courses_float ~ '^[YNyn0]{1}$'));
+
+create table all_student_data(
+id char(11),
+session varchar,
+batch integer,
+courseid char(5),
+grade varchar,
+semester integer,
+course_type char(2),
+foreign key(id) references students(id),
+foreign key(courseid) references course_catalog);
+
+create table program_core(
+course_id char(5),
+department varchar,
+req_sem integer,
+batch integer,
+constraint courseid_check check(course_id ~ '^[0-9a-zA-Z]{5}$'));
+
+create table elective(
+course_id char(5),
+session varchar,
+batch integer,
+departments varchar,
+constraint courseid_check check(course_id ~ '^[0-9a-zA-Z]{5}$'));
+
+create table engineering_core(
+course_id char(5),
+req_sem integer,
+batch integer,
+constraint courseid_check check(course_id ~ '^[0-9a-zA-Z]{5}$'));
+
+-- create table courses_offered(CourseId varchar(5),InstructorId varchar, session integer,constraint numeric default 0.0);

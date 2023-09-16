@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.iitrpr.Pages.Students.Student_home_pageTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-03-09T15:29:24" hostname="nishant" time="0.071">
+  <properties/>
+  <testcase name="student_login_front_end()" classname="org.iitrpr.Pages.Students.Student_home_pageTest" time="0.071"/>
+  <system-out><![CDATA[----STUDENT LOGIN----
+Press 1=To view records up to current semester
+Press 2=To view current CGPA
+Press 3=To register for current semester
+Press 4=To view personal information
+Press 5=Edit personal information
+Press 6=To check the list of eligible students for graduation
+Enter your choice:bhai choice=1
+Record generated as a transcript in Transcript folder
+current session bhai=2021-1
+Current Semester=3
+Student didn't did any course in the session 2021-1
+Press 1 to go back to login page else 0 to continue:Exit choice=1
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

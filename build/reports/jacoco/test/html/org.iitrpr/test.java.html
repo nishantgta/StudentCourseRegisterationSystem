@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>test.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">mini_project_2</a> &gt; <a href="index.source.html" class="el_package">org.iitrpr</a> &gt; <span class="el_source">test.java</span></div><h1>test.java</h1><pre class="source lang-java linenums">package org.iitrpr;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import java.util.Map;
+import java.util.HashMap;
+
+<span class="nc" id="L10">public class test{</span>
+    public static void main(String[] args) throws IOException {
+        /*String csvFilePath = &quot;/home/nishant/Documents/Academics/Software_Engineering/Project/mini_project_2/src/main/java/org/iitrpr/yo.csv&quot;;
+
+        try (CSVWriter writer = new CSVWriter(new FileWriter(csvFilePath,true))) {
+            String[] header = {&quot;Name&quot;, &quot;Age&quot;, &quot;SEX&quot;};
+            writer.writeNext(header);
+
+            String[] john = {&quot;John&quot;, &quot;25&quot;, &quot;New York&quot;};
+            String[] jane = {&quot;Jane&quot;, &quot;30&quot;, &quot;San Francisco&quot;};
+            String[] bob = {&quot;Bob&quot;, &quot;40&quot;, &quot;Seattle&quot;};
+
+            writer.writeNext(john);
+            writer.writeNext(jane);
+            writer.writeNext(bob);
+
+            System.out.println(&quot;CSV file written successfully!&quot;);
+        } catch (IOException e) {
+            System.out.println(&quot;Error writing to CSV file: &quot; + e.getMessage());
+        }*/
+<span class="nc" id="L30">        Map&lt;String,Double&gt; grades_score=new HashMap&lt;&gt;();</span>
+<span class="nc" id="L31">        grades_score.put(&quot;A&quot;,10.0);</span>
+<span class="nc" id="L32">        grades_score.put(&quot;A-&quot;,9.0);</span>
+<span class="nc" id="L33">        grades_score.put(&quot;B&quot;,8.0);</span>
+<span class="nc" id="L34">        grades_score.put(&quot;B-&quot;,7.0);</span>
+<span class="nc" id="L35">        grades_score.put(&quot;C&quot;,6.0);</span>
+<span class="nc" id="L36">        grades_score.put(&quot;C-&quot;,5.0);</span>
+<span class="nc" id="L37">        grades_score.put(&quot;D&quot;,4.0);</span>
+<span class="nc" id="L38">        grades_score.put(&quot;D-&quot;,3.0);</span>
+<span class="nc" id="L39">        grades_score.put(&quot;E&quot;,2.0);</span>
+<span class="nc" id="L40">        grades_score.put(&quot;E-&quot;,1.0);</span>
+<span class="nc" id="L41">        grades_score.put(&quot;F&quot;,0.0);</span>
+
+<span class="nc" id="L43">        System.out.println(grades_score.get(&quot;A&quot;)+grades_score.get(&quot;A-&quot;));</span>
+<span class="nc" id="L44">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

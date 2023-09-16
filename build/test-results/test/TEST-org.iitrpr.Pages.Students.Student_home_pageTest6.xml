@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.iitrpr.Pages.Students.Student_home_pageTest6" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-03-09T15:29:28" hostname="nishant" time="0.122">
+  <properties/>
+  <testcase name="student_login_front_end()" classname="org.iitrpr.Pages.Students.Student_home_pageTest6" time="0.122"/>
+  <system-out><![CDATA[----STUDENT LOGIN----
+Press 1=To view records up to current semester
+Press 2=To view current CGPA
+Press 3=To register for current semester
+Press 4=To view personal information
+Press 5=Edit personal information
+Press 6=To check the list of eligible students for graduation
+Enter your choice:bhai choice=3
+No semester is currently running or the course add/drop is not yet allowed
+Press 1 to go back to login page else 0 to continue:Exit choice=1
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

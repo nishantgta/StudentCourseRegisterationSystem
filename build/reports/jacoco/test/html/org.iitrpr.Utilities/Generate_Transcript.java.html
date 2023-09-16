@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Generate_Transcript.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">mini_project_2</a> &gt; <a href="index.source.html" class="el_package">org.iitrpr.Utilities</a> &gt; <span class="el_source">Generate_Transcript.java</span></div><h1>Generate_Transcript.java</h1><pre class="source lang-java linenums">package org.iitrpr.Utilities;
+import java.sql.*;
+import org.iitrpr.Pages.Students.Student_home_page;
+
+import java.io.FileWriter;
+import java.io.IOException;
+<span class="nc" id="L7">public class Generate_Transcript {</span>
+    public static void transcript(String id,Statement stmt,Connection conn,String session,int role)throws IOException{
+<span class="fc" id="L9">        id=id.toUpperCase();</span>
+        /*all info up to current semester with SGPA, CGPA calculated and grades printed along with the courses*/
+        /*find number of semesters up to current semester*/
+<span class="fc" id="L12">        String filepath=&quot;&quot;;</span>
+<span class="fc bfc" id="L13" title="All 2 branches covered.">        if(role == 1){</span>
+<span class="fc" id="L14">            filepath=&quot;/home/nishant/Documents/Academics/Software_Engineering/mini_project_2/src/main/java/org/iitrpr/Transcript/acad_transcript.txt&quot;;</span>
+        }
+<span class="pc bpc" id="L16" title="1 of 2 branches missed.">        else if(role == 2){</span>
+<span class="nc" id="L17">            filepath=&quot;/home/nishant/Documents/Academics/Software_Engineering/mini_project_2/src/main/java/org/iitrpr/Transcript/faculty_transcript.txt&quot;;</span>
+        }
+        else{
+<span class="fc" id="L20">            filepath=&quot;/home/nishant/Documents/Academics/Software_Engineering/mini_project_2/src/main/java/org/iitrpr/Transcript/student_transcript.txt&quot;;</span>
+        }
+
+<span class="fc" id="L23">        String query=&quot;select * from all_student_data where id='&quot;+id+&quot;';&quot;;</span>
+<span class="fc" id="L24">        int current_semester=Student_home_page.get_current_semester(session,id);</span>
+<span class="fc" id="L25">        System.out.println(&quot;Current Semester=&quot;+current_semester);</span>
+<span class="fc" id="L26">        String og_session=id.substring(0,4)+&quot;-1&quot;;</span>
+<span class="fc" id="L27">        FileWriter writer=new FileWriter(filepath);</span>
+        try{
+<span class="fc" id="L29">            ResultSet rs=stmt.executeQuery(query);</span>
+<span class="fc" id="L30">            writer.write(&quot;STUDENT ID=&quot;+id);</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">            for(int i=1;i&lt;=current_semester;i++){</span>
+<span class="fc" id="L32">                stmt=conn.createStatement();</span>
+<span class="fc" id="L33">                writer.write(&quot;\nSEMESTER=&quot;+i+&quot; SESSION=&quot;+og_session+&quot;\n&quot;);</span>
+<span class="fc" id="L34">                String query_get_data=&quot;select * from all_student_data where id='&quot;+id+&quot;' and semester=&quot;+i+&quot; and session='&quot;+og_session+&quot;' and grade!='NA';&quot;;</span>
+<span class="fc" id="L35">                ResultSet get_data=stmt.executeQuery(query_get_data);</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">                while(get_data.next()){</span>
+                    String s1,s2,s3;
+<span class="fc" id="L38">                    s1=get_data.getString(&quot;courseid&quot;);</span>
+<span class="fc" id="L39">                    s2=get_data.getString(&quot;grade&quot;);</span>
+<span class="fc" id="L40">                    s3=get_data.getString(&quot;course_type&quot;);</span>
+<span class="fc" id="L41">                    writer.write(s1+&quot; &quot;+s2+&quot; &quot;+s3+&quot;\n&quot;);</span>
+<span class="fc" id="L42">                }</span>
+<span class="fc" id="L43">                double sgpa=Student_home_page.calculate_sgpa(stmt,id,og_session,conn);</span>
+<span class="fc" id="L44">                writer.write(&quot;SGPA for session &quot;+og_session+&quot; is=&quot;+sgpa+&quot;\n&quot;);</span>
+                /*move og_session to next session*/
+<span class="fc bfc" id="L46" title="All 2 branches covered.">                if(og_session.charAt(5)=='1'){</span>
+<span class="fc" id="L47">                    og_session=og_session.substring(0,4)+&quot;-2&quot;;</span>
+                }
+                else{
+<span class="fc" id="L50">                    int year=Integer.parseInt(og_session.substring(0,4))+1;</span>
+<span class="fc" id="L51">                    og_session=Integer.toString(year)+&quot;-1&quot;;</span>
+                }
+<span class="fc" id="L53">                writer.write(&quot;\n\n&quot;);</span>
+            }
+<span class="fc" id="L55">            double cgpa=Student_home_page.calculate_cgpa(stmt,id,session,conn);</span>
+<span class="fc" id="L56">            writer.write(&quot;CGPA=&quot;+cgpa+&quot;\n&quot;);</span>
+<span class="fc" id="L57">            writer.close();</span>
+<span class="nc" id="L58">        }catch(SQLException e){</span>
+<span class="nc" id="L59">            e.printStackTrace();</span>
+<span class="fc" id="L60">        }</span>
+<span class="fc" id="L61">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

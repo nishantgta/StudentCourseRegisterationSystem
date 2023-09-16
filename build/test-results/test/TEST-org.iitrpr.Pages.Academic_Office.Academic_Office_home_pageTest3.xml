@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.iitrpr.Pages.Academic_Office.Academic_Office_home_pageTest3" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-03-09T15:29:20" hostname="nishant" time="0.111">
+  <properties/>
+  <testcase name="academic_login_front_end_6()" classname="org.iitrpr.Pages.Academic_Office.Academic_Office_home_pageTest3" time="0.111"/>
+  <system-out><![CDATA[----ACADEMIC OFFICE LOGIN----
+Press 1=View grade of all students
+Press 2=To edit the course catalog(add or remove new courses)
+Press 3=To generate transcripts of students
+Press 4=To add a session information, whether to allow course registration,grade submission
+Press 5=To specify a course for current session and its type
+Enter your choice:mera choice=4
+----AVAILABLE OPTIONS----
+Press 1=To start a new session
+Press 2=To start course floating
+Press 3=To start course registration
+Press 4=To start grade submission
+Press 5=To stop grade submission
+Press 6=To stop course registration
+Press 7=To stop course floating
+Press 8=To end the session
+Press 9=To go back to academic office home page
+Enter your choice:Choices in the funct=8
+No session is currently running
+----AVAILABLE OPTIONS----
+Press 1=To start a new session
+Press 2=To start course floating
+Press 3=To start course registration
+Press 4=To start grade submission
+Press 5=To stop grade submission
+Press 6=To stop course registration
+Press 7=To stop course floating
+Press 8=To end the session
+Press 9=To go back to academic office home page
+Enter your choice:Choices in the funct=7
+No session is currently running
+----AVAILABLE OPTIONS----
+Press 1=To start a new session
+Press 2=To start course floating
+Press 3=To start course registration
+Press 4=To start grade submission
+Press 5=To stop grade submission
+Press 6=To stop course registration
+Press 7=To stop course floating
+Press 8=To end the session
+Press 9=To go back to academic office home page
+Enter your choice:Choices in the funct=6
+No session is currently running
+----AVAILABLE OPTIONS----
+Press 1=To start a new session
+Press 2=To start course floating
+Press 3=To start course registration
+Press 4=To start grade submission
+Press 5=To stop grade submission
+Press 6=To stop course registration
+Press 7=To stop course floating
+Press 8=To end the session
+Press 9=To go back to academic office home page
+Enter your choice:Choices in the funct=5
+No session is currently running
+----AVAILABLE OPTIONS----
+Press 1=To start a new session
+Press 2=To start course floating
+Press 3=To start course registration
+Press 4=To start grade submission
+Press 5=To stop grade submission
+Press 6=To stop course registration
+Press 7=To stop course floating
+Press 8=To end the session
+Press 9=To go back to academic office home page
+Enter your choice:Choices in the funct=4
+No session is currently running
+----AVAILABLE OPTIONS----
+Press 1=To start a new session
+Press 2=To start course floating
+Press 3=To start course registration
+Press 4=To start grade submission
+Press 5=To stop grade submission
+Press 6=To stop course registration
+Press 7=To stop course floating
+Press 8=To end the session
+Press 9=To go back to academic office home page
+Enter your choice:Choices in the funct=3
+yo bhai
+No session is currently running
+----AVAILABLE OPTIONS----
+Press 1=To start a new session
+Press 2=To start course floating
+Press 3=To start course registration
+Press 4=To start grade submission
+Press 5=To stop grade submission
+Press 6=To stop course registration
+Press 7=To stop course floating
+Press 8=To end the session
+Press 9=To go back to academic office home page
+Enter your choice:Choices in the funct=2
+choice 2
+There is no running session
+----AVAILABLE OPTIONS----
+Press 1=To start a new session
+Press 2=To start course floating
+Press 3=To start course registration
+Press 4=To start grade submission
+Press 5=To stop grade submission
+Press 6=To stop course registration
+Press 7=To stop course floating
+Press 8=To end the session
+Press 9=To go back to academic office home page
+Enter your choice:Choices in the funct=1
+Enter new session:insert into event_table_acads values('2020-1','Y','0','0','0');
+----AVAILABLE OPTIONS----
+Press 1=To start a new session
+Press 2=To start course floating
+Press 3=To start course registration
+Press 4=To start grade submission
+Press 5=To stop grade submission
+Press 6=To stop course registration
+Press 7=To stop course floating
+Press 8=To end the session
+Press 9=To go back to academic office home page
+Enter your choice:Choices in the funct=1
+Already a session running. You can't enter a new session
+----AVAILABLE OPTIONS----
+Press 1=To start a new session
+Press 2=To start course floating
+Press 3=To start course registration
+Press 4=To start grade submission
+Press 5=To stop grade submission
+Press 6=To stop course registration
+Press 7=To stop course floating
+Press 8=To end the session
+Press 9=To go back to academic office home page
+Enter your choice:Choices in the funct=9
+Press 1 to go back to login page else 0 to continue:]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.iitrpr.MainTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-03-09T15:29:10" hostname="nishant" time="0.147">
+  <properties/>
+  <testcase name="main()" classname="org.iitrpr.MainTest" time="0.13"/>
+  <testcase name="connect()" classname="org.iitrpr.MainTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

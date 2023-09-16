@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.iitrpr.Pages.Login_pageTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-03-09T15:29:16" hostname="nishant" time="0.107">
+  <properties/>
+  <testcase name="login_page_front_end()" classname="org.iitrpr.Pages.Login_pageTest" time="0.03"/>
+  <testcase name="login_page_front_end_1()" classname="org.iitrpr.Pages.Login_pageTest" time="0.032"/>
+  <testcase name="login_page_front_end_2()" classname="org.iitrpr.Pages.Login_pageTest" time="0.008"/>
+  <testcase name="login_page_front_end_3()" classname="org.iitrpr.Pages.Login_pageTest" time="0.02"/>
+  <system-out><![CDATA[LOGIN PAGE
+Press 1 for student
+Press 2 for Faculty
+Press 3 for Academic Officials
+Enter your choice:Welcome back Student
+Enter your EmailID:Enter your password:LOGIN PAGE
+Press 1 for student
+Press 2 for Faculty
+Press 3 for Academic Officials
+Enter your choice:Welcome back Faculty
+Enter your EmailID:Enter your password:LOGIN PAGE
+Press 1 for student
+Press 2 for Faculty
+Press 3 for Academic Officials
+Enter your choice:Welcome back Academic Officials
+Enter your EmailID:Enter your password:LOGIN PAGE
+Press 1 for student
+Press 2 for Faculty
+Press 3 for Academic Officials
+Enter your choice:Please enter correct choice
+Welcome back Academic Officials
+Enter your EmailID:Enter your password:]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

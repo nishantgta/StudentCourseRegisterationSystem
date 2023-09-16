@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.iitrpr.Pages.Students.Student_home_pageTest9" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-03-09T15:29:28" hostname="nishant" time="0.055">
+  <properties/>
+  <testcase name="register_electives()" classname="org.iitrpr.Pages.Students.Student_home_pageTest9" time="0.055"/>
+  <system-out><![CDATA[Total Available credits in this sem:4.0
+Credits registered till now:0.0
+Available credits for electives4.0
+No elective courses are offered by the faculty
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

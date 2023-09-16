@@ -1,0 +1,1391 @@
+w/home/nishant/Documents/Academics/Software_Engineering/Project/mini_project_2/src/main/java/org/tables/departments.csv
+
+"Computer Science and Engineering 
+DINSERT INTO departments VALUES('Computer Science and Engineering');
+Chemical Engineering 
+8INSERT INTO departments VALUES('Chemical Engineering');
+Civil Engineering 
+5INSERT INTO departments VALUES('Civil Engineering');
+Mechanical Engineering 
+:INSERT INTO departments VALUES('Mechanical Engineering');
+Electrical Engineering 
+:INSERT INTO departments VALUES('Electrical Engineering');
+Chemistry 
+-INSERT INTO departments VALUES('Chemistry');
+	Physics 
++INSERT INTO departments VALUES('Physics');
+Mathematics 
+/INSERT INTO departments VALUES('Mathematics');
+ Humanities and Social Sciences 
+BINSERT INTO departments VALUES('Humanities and Social Sciences');
+"Center of BioMedical Engineering 
+DINSERT INTO departments VALUES('Center of BioMedical Engineering');
+!Center for Materials and Energy 
+CINSERT INTO departments VALUES('Center for Materials and Energy');
+t/home/nishant/Documents/Academics/Software_Engineering/Project/mini_project_2/src/main/java/org/tables/students.csv
+
+m2020CSB1103 2020csb1103@iitrpr.ac.in 2020 Nishant Verma Computer Science and Engineering verma12 1234567890 
+ñINSERT INTO students VALUES('2020CSB1103','2020csb1103@iitrpr.ac.in',2020,'Nishant Verma','Computer Science and Engineering','verma12','1234567890');
+m2020CSB1101 2020csb1101@iitrpr.ac.in 2020 Navroop Singh Computer Science and Engineering singh05 1234567890 
+ñINSERT INTO students VALUES('2020CSB1101','2020csb1101@iitrpr.ac.in',2020,'Navroop Singh','Computer Science and Engineering','singh05','1234567890');
+n2020CSB1094 2020csb1094@iitrpr.ac.in 2020 Kartikay Singh Computer Science and Engineering karti19 1234567890 
+óINSERT INTO students VALUES('2020CSB1094','2020csb1094@iitrpr.ac.in',2020,'Kartikay Singh','Computer Science and Engineering','karti19','1234567890');
+i2020CSB1126 2020csb1126@iitrpr.ac.in 2020 Shilu Tudu Computer Science and Engineering tudu27 1234567890 
+íINSERT INTO students VALUES('2020CSB1126','2020csb1126@iitrpr.ac.in',2020,'Shilu Tudu','Computer Science and Engineering','tudu27','1234567890');
+z/home/nishant/Documents/Academics/Software_Engineering/Project/mini_project_2/src/main/java/org/tables/course_catalog.csv
+
+NCS304 Computer Networks Computer Science and Engineering 3-1-2-6-4 {"CS201"} 
+{INSERT INTO course_catalog VALUES('CS304','Computer Networks','Computer Science and Engineering','3-1-2-6-4','{"CS201"}');
+YCS305 Software Engineering Computer Science and Engineering 3-1-2-6-4 {"CS301","CS303"} 
+ÜINSERT INTO course_catalog VALUES('CS305','Software Engineering','Computer Science and Engineering','3-1-2-6-4','{"CS301","CS303"}');
+RCS306 Theory of Computation Computer Science and Engineering 3-1-0-5-3 {"CS101"} 
+INSERT INTO course_catalog VALUES('CS306','Theory of Computation','Computer Science and Engineering','3-1-0-5-3','{"CS101"}');
+OCS101 Discrete Mathematics Computer Science and Engineering 3-1-0-5-3 {"NIL"} 
+|INSERT INTO course_catalog VALUES('CS101','Discrete Mathematics','Computer Science and Engineering','3-1-0-5-3','{"NIL"}');
+LCS201 DATA STRUCTURES Computer Science and Engineering 3-1-2-6-4 {"GE103"} 
+yINSERT INTO course_catalog VALUES('CS201','DATA STRUCTURES','Computer Science and Engineering','3-1-2-6-4','{"GE103"}');
+aCS202 Programming Paradigms and Pragmatics Computer Science and Engineering 3-1-2-6-4 {"CS201"} 
+éINSERT INTO course_catalog VALUES('CS202','Programming Paradigms and Pragmatics','Computer Science and Engineering','3-1-2-6-4','{"CS201"}');
+QCS203 Digital Logic Design Computer Science and Engineering 3-1-3-6-4 {"GE103"} 
+~INSERT INTO course_catalog VALUES('CS203','Digital Logic Design','Computer Science and Engineering','3-1-3-6-4','{"GE103"}');
+[CS204 Computer Architecture  Computer Science and Engineering 3-1-2-6-4 {"CS203","CS201"} 
+àINSERT INTO course_catalog VALUES('CS204','Computer Architecture ','Computer Science and Engineering','3-1-2-6-4','{"CS203","CS201"}');
+^CS302 Analysis and Design of Algorithms Computer Science and Engineering 3-1-0-5-3 {"CS101"} 
+ãINSERT INTO course_catalog VALUES('CS302','Analysis and Design of Algorithms','Computer Science and Engineering','3-1-0-5-3','{"CS101"}');
+FCS301 Databases Computer Science and Engineering 3-1-2-6-4 {"CS201"} 
+sINSERT INTO course_catalog VALUES('CS301','Databases','Computer Science and Engineering','3-1-2-6-4','{"CS201"}');
+VCS303 Operating Systems Computer Science and Engineering 3-1-2-6-4 {"CS201","CS203"} 
+ÉINSERT INTO course_catalog VALUES('CS303','Operating Systems','Computer Science and Engineering','3-1-2-6-4','{"CS201","CS203"}');
+lGE103 INTRODUCTION TO COMPUTING AND DATA STRUCTURES Computer Science and Engineering 3-0-3-7.5-4.5 {"NIL"} 
+ôINSERT INTO course_catalog VALUES('GE103','INTRODUCTION TO COMPUTING AND DATA STRUCTURES','Computer Science and Engineering','3-0-3-7.5-4.5','{"NIL"}');
+HGE105 Engineering Drawing Mechanical Engineering 0-0-3-1.5-1.5 {"NIL"} 
+uINSERT INTO course_catalog VALUES('GE105','Engineering Drawing','Mechanical Engineering','0-0-3-1.5-1.5','{"NIL"}');
+7PH101 Physics for Engineers Physics 3-1-0-5-3 {"NIL"} 
+dINSERT INTO course_catalog VALUES('PH101','Physics for Engineers','Physics','3-1-0-5-3','{"NIL"}');
+/MA101 CALCULUS  Mathematics 3-1-0-5-3 {"NIL"} 
+\INSERT INTO course_catalog VALUES('MA101','CALCULUS ','Mathematics','3-1-0-5-3','{"NIL"}');
+[HS103 PROFESSIONAL ENGLISH COMMUNICATION Humanities and Social Sciences 2-0-2-5-3 {"NIL"} 
+àINSERT INTO course_catalog VALUES('HS103','PROFESSIONAL ENGLISH COMMUNICATION','Humanities and Social Sciences','2-0-2-5-3','{"NIL"}');
+;PH102 Physics for Engineers Lab Physics 0-0-4-2-2 {"NIL"} 
+hINSERT INTO course_catalog VALUES('PH102','Physics for Engineers Lab','Physics','0-0-4-2-2','{"NIL"}');
+;CY101 Chemistry for Engineers Chemistry 3-1-2-6-4 {"NIL"} 
+hINSERT INTO course_catalog VALUES('CY101','Chemistry for Engineers','Chemistry','3-1-2-6-4','{"NIL"}');
+BGE102 WORKSHOP PRACTICE Mechanical Engineering 0-0-4-2-2 {"NIL"} 
+oINSERT INTO course_catalog VALUES('GE102','WORKSHOP PRACTICE','Mechanical Engineering','0-0-4-2-2','{"NIL"}');
+NGE101 TECHNOLOGY MUSEUM LAB Humanities and Social Sciences 0-0-2-1-1 {"NIL"} 
+{INSERT INTO course_catalog VALUES('GE101','TECHNOLOGY MUSEUM LAB','Humanities and Social Sciences','0-0-2-1-1','{"NIL"}');
+WGE104 INTRODUCTION TO ELECTRICAL ENGINEERING Electrical Engineering 2-1-2-4-3 {"NIL"} 
+ÑINSERT INTO course_catalog VALUES('GE104','INTRODUCTION TO ELECTRICAL ENGINEERING','Electrical Engineering','2-1-2-4-3','{"NIL"}');
+VHS101 History of Technology Humanities and Social Sciences 1.5-0.5-0-2.5-1.5 {"NIL"} 
+ÉINSERT INTO course_catalog VALUES('HS101','History of Technology','Humanities and Social Sciences','1.5-0.5-0-2.5-1.5','{"NIL"}');
+4MA102 Linear Algebra Mathematics 3-1-0-5-3 {"NIL"} 
+aINSERT INTO course_catalog VALUES('MA102','Linear Algebra','Mathematics','3-1-0-5-3','{"NIL"}');
+{/home/nishant/Documents/Academics/Software_Engineering/Project/mini_project_2/src/main/java/org/tables/courses_offered.csv
+
+s/home/nishant/Documents/Academics/Software_Engineering/Project/mini_project_2/src/main/java/org/tables/faculty.csv
+
+Manilshukla@iitrpr.ac.in Anil Shukla Computer Science and Engineering anil12 
+qINSERT INTO faculty VALUES('anilshukla@iitrpr.ac.in','Anil Shukla','Computer Science and Engineering','anil12');
+Kneeraj@iitrpr.ac.in Neeraj Goel Computer Science and Engineering neeraj12 
+oINSERT INTO faculty VALUES('neeraj@iitrpr.ac.in','Neeraj Goel','Computer Science and Engineering','neeraj12');
+Ksodhi@iitrpr.ac.in Balwinder Sodhi Computer Science and Engineering bal12 
+oINSERT INTO faculty VALUES('sodhi@iitrpr.ac.in','Balwinder Sodhi','Computer Science and Engineering','bal12');
+Khimanshu.paliwal@iitrpr.ac.in Himanshu Paliwal Chemical Engineering him12 
+oINSERT INTO faculty VALUES('himanshu.paliwal@iitrpr.ac.in','Himanshu Paliwal','Chemical Engineering','him12');
+Iranoringo@iitrpr.ac.in Rano Ringo Humanities and Social Sciences rano12 
+mINSERT INTO faculty VALUES('ranoringo@iitrpr.ac.in','Rano Ringo','Humanities and Social Sciences','rano12');
+Gamritesh@iitrpr.ac.in Amritesh Humanities and Social Sciences amrit12 
+kINSERT INTO faculty VALUES('amritesh@iitrpr.ac.in','Amritesh','Humanities and Social Sciences','amrit12');
+3abiswas@iitrpr.ac.in Asoka Biswas Physics asoka12 
+WINSERT INTO faculty VALUES('abiswas@iitrpr.ac.in','Asoka Biswas','Physics','asoka12');
+Hharpreetsingh@iitrpr.ac.in Harpreet Singh Mechanical Engineering har12 
+lINSERT INTO faculty VALUES('harpreetsingh@iitrpr.ac.in','Harpreet Singh','Mechanical Engineering','har12');
+Cjprasad@iitrpr.ac.in Jitendra Prasad Mechanical Engineering jit12 
+gINSERT INTO faculty VALUES('jprasad@iitrpr.ac.in','Jitendra Prasad','Mechanical Engineering','jit12');
+9baleshkumar@iitrpr.ac.in Balesh Kumar Mathematics bal12 
+]INSERT INTO faculty VALUES('baleshkumar@iitrpr.ac.in','Balesh Kumar','Mathematics','bal12');
+4chmsdas@iitrpr.ac.in Soumyajit Das Chemistry som12 
+XINSERT INTO faculty VALUES('chmsdas@iitrpr.ac.in','Soumyajit Das','Chemistry','som12');
+Ckalaiselvi@iitrpr.ac.in Kalaiselvi J Electrical Engineering kal12 
+gINSERT INTO faculty VALUES('kalaiselvi@iitrpr.ac.in','Kalaiselvi J','Electrical Engineering','kal12');
+Dbrijesh@iitrpr.ac.in Brajesh Kumbhani Electrical Engineering bra12 
+hINSERT INTO faculty VALUES('brijesh@iitrpr.ac.in','Brajesh Kumbhani','Electrical Engineering','bra12');
+{/home/nishant/Documents/Academics/Software_Engineering/Project/mini_project_2/src/main/java/org/tables/academic_office.csv
+
+5deanstaff@iitrpr.ac.in Honey Singh Staff Dean acad1 
+aINSERT INTO academic_office VALUES('deanstaff@iitrpr.ac.in','Honey Singh','Staff Dean','acad1');
+Coffice-academics-1@iitrpr.ac.in Amrit Varsha Superintendent acad2 
+oINSERT INTO academic_office VALUES('office-academics-1@iitrpr.ac.in','Amrit Varsha','Superintendent','acad2');
+?academicsug@iitrpr.ac.in Neha Dandhare Senior Assistant acad3 
+kINSERT INTO academic_office VALUES('academicsug@iitrpr.ac.in','Neha Dandhare','Senior Assistant','acad3');
+x/home/nishant/Documents/Academics/Software_Engineering/Project/mini_project_2/src/main/java/org/tables/program_core.csv
+
+/CS101 Computer Science and Engineering 1 2020 
+TINSERT INTO program_core VALUES('CS101','Computer Science and Engineering',1,2020);
+|/home/nishant/Documents/Academics/Software_Engineering/Project/mini_project_2/src/main/java/org/tables/engineering_core.csv
+
+GE103 1 2020 
+5INSERT INTO engineering_core VALUES('GE103',1,2020);
+GE105 1 2020 
+5INSERT INTO engineering_core VALUES('GE105',1,2020);
+PH101 1 2020 
+5INSERT INTO engineering_core VALUES('PH101',1,2020);
+MA101 1 2020 
+5INSERT INTO engineering_core VALUES('MA101',1,2020);
+HS103 1 2020 
+5INSERT INTO engineering_core VALUES('HS103',1,2020);
+
+	LOGIN PAGE
+
+	Press 1 for student
+
+	Press 2 for Faculty
+
+	Press 3 for Academic Officials
+
+	'Enter your choice:Welcome back Student
+
+	'Enter your EmailID:Enter your password:
+LOGIN PAGE
+
+Press 1 for student
+
+Press 2 for Faculty
+
+Press 3 for Academic Officials
+
+'Enter your choice:Welcome back Faculty
+
+'Enter your EmailID:Enter your password:
+LOGIN PAGE
+
+Press 1 for student
+
+Press 2 for Faculty
+
+Press 3 for Academic Officials
+
+2Enter your choice:Welcome back Academic Officials
+
+'Enter your EmailID:Enter your password:
+LOGIN PAGE
+
+Press 1 for student
+
+Press 2 for Faculty
+
+Press 3 for Academic Officials
+
+.Enter your choice:Please enter correct choice
+
+ Welcome back Academic Officials
+
+'Enter your EmailID:Enter your password:----ACADEMIC OFFICE LOGIN----
+#Press 1=View grade of all students
+>Press 2=To edit the course catalog(add or remove new courses)
+,Press 3=To generate transcripts of students
+\Press 4=To add a session information, whether to allow course registration,grade submission
+=Press 5=To specify a course for current session and its type
+ Enter your choice:mera choice=1
+yo
+Enter student Entry Number:
+Invalid student ID
+4Press 1 to go back to login page else 0 to continue:----ACADEMIC OFFICE LOGIN----
+#Press 1=View grade of all students
+>Press 2=To edit the course catalog(add or remove new courses)
+,Press 3=To generate transcripts of students
+\Press 4=To add a session information, whether to allow course registration,grade submission
+=Press 5=To specify a course for current session and its type
+ Enter your choice:mera choice=2
+EDIT COURSE CATALOG MENU
+Press 1: To add a course
+ Press 2: To view course catalog
+ Press 3: To exit course catalog
+]Enter your choice:CS304 Computer Networks Computer Science and Engineering 3-1-2-6-4 {CS201}
+TCS305 Software Engineering Computer Science and Engineering 3-1-2-6-4 {CS301,CS303}
+OCS306 Theory of Computation Computer Science and Engineering 3-1-0-5-3 {CS101}
+LCS101 Discrete Mathematics Computer Science and Engineering 3-1-0-5-3 {NIL}
+^CS202 Programming Paradigms and Pragmatics Computer Science and Engineering 3-1-2-6-4 {CS201}
+NCS203 Digital Logic Design Computer Science and Engineering 3-1-3-6-4 {GE103}
+VCS204 Computer Architecture  Computer Science and Engineering 3-1-2-6-4 {CS203,CS201}
+[CS302 Analysis and Design of Algorithms Computer Science and Engineering 3-1-0-5-3 {CS101}
+QCS303 Operating Systems Computer Science and Engineering 3-1-2-6-4 {CS201,CS203}
+EGE105 Engineering Drawing Mechanical Engineering 0-0-3-1.5-1.5 {NIL}
+4PH101 Physics for Engineers Physics 3-1-0-5-3 {NIL}
+,MA101 CALCULUS  Mathematics 3-1-0-5-3 {NIL}
+XHS103 PROFESSIONAL ENGLISH COMMUNICATION Humanities and Social Sciences 2-0-2-5-3 {NIL}
+1MA102 Linear Algebra Mathematics 3-1-0-5-3 {NIL}
+SHS101 History of Technology Humanities and Social Sciences 1.5-0.5-0-2.5-1.5 {NIL}
+TGE104 INTRODUCTION TO ELECTRICAL ENGINEERING Electrical Engineering 2-1-2-4-3 {NIL}
+KGE101 TECHNOLOGY MUSEUM LAB Humanities and Social Sciences 0-0-2-1-1 {NIL}
+?GE102 WORKSHOP PRACTICE Mechanical Engineering 0-0-4-2-2 {NIL}
+8CY101 Chemistry for Engineers Chemistry 3-1-2-6-4 {NIL}
+8PH102 Physics for Engineers Lab Physics 0-0-4-2-2 {NIL}
+?HS201 Economics Humanities and Social Sciences 3-1-0-5-3 {NIL}
+gGE103 INTRODUCTION TO COMPUTING AND DATA STRUCTURES Computer Science and Engineering 3-0-3-7.5-3 {NIL}
+ACS500 COMPUTER Computer Science and Engineering 3-1-2-6-20 {NIL}
+<HS500 HUMAN Humanities and Social Sciences 3-1-2-6-20 {NIL}
+)MA500 HUMAN Mathematics 3-1-2-6-20 {NIL}
+CP302 BTP All 3-1-2-6-3 {NIL}
+ICS201 DATA STRUCTURES Computer Science and Engineering 3-1-2-6-4 {GE103}
+EDIT COURSE CATALOG MENU
+Press 1: To add a course
+ Press 2: To view course catalog
+ Press 3: To exit course catalog
+FEnter your choice:Press 1 to go back to login page else 0 to continue:----ACADEMIC OFFICE LOGIN----
+#Press 1=View grade of all students
+>Press 2=To edit the course catalog(add or remove new courses)
+,Press 3=To generate transcripts of students
+\Press 4=To add a session information, whether to allow course registration,grade submission
+=Press 5=To specify a course for current session and its type
+ Enter your choice:mera choice=2
+EDIT COURSE CATALOG MENU
+Press 1: To add a course
+ Press 2: To view course catalog
+ Press 3: To exit course catalog
+∂Enter your choice:Enter course id:Enter course name:Enter department:Enter L-T-P-S-C:Enter number of prerequisites:Enter all n prerequisites space separated:EDIT COURSE CATALOG MENU
+Press 1: To add a course
+ Press 2: To view course catalog
+ Press 3: To exit course catalog
+FEnter your choice:Press 1 to go back to login page else 0 to continue:----ACADEMIC OFFICE LOGIN----
+#Press 1=View grade of all students
+>Press 2=To edit the course catalog(add or remove new courses)
+,Press 3=To generate transcripts of students
+\Press 4=To add a session information, whether to allow course registration,grade submission
+=Press 5=To specify a course for current session and its type
+ Enter your choice:mera choice=2
++You are not allowed to edit course catalog
+4Press 1 to go back to login page else 0 to continue:----ACADEMIC OFFICE LOGIN----
+#Press 1=View grade of all students
+>Press 2=To edit the course catalog(add or remove new courses)
+,Press 3=To generate transcripts of students
+\Press 4=To add a session information, whether to allow course registration,grade submission
+=Press 5=To specify a course for current session and its type
+ Enter your choice:mera choice=3
+4Please enter student ID:current session bhai=2021-1
+Current Semester=3
+4Student didn't did any course in the session 2021-1
+4Press 1 to go back to login page else 0 to continue:----ACADEMIC OFFICE LOGIN----
+#Press 1=View grade of all students
+>Press 2=To edit the course catalog(add or remove new courses)
+,Press 3=To generate transcripts of students
+\Press 4=To add a session information, whether to allow course registration,grade submission
+=Press 5=To specify a course for current session and its type
+ Enter your choice:mera choice=1
+yo
+Enter student Entry Number:
+CS101 2020-1 B
+MA102 2020-2 A-
+GE104 2020-2 B
+GE103 2020-1 A
+CP302 2023-1 A
+
+true true
+4Press 1 to go back to login page else 0 to continue:----ACADEMIC OFFICE LOGIN----
+#Press 1=View grade of all students
+>Press 2=To edit the course catalog(add or remove new courses)
+,Press 3=To generate transcripts of students
+\Press 4=To add a session information, whether to allow course registration,grade submission
+=Press 5=To specify a course for current session and its type
+ Enter your choice:mera choice=4
+----AVAILABLE OPTIONS----
+Press 1=To start a new session
+!Press 2=To start course floating
+%Press 3=To start course registration
+"Press 4=To start grade submission
+!Press 5=To stop grade submission
+$Press 6=To stop course registration
+ Press 7=To stop course floating
+Press 8=To end the session
+0Press 9=To go back to academic office home page
+)Enter your choice:Choices in the funct=4
+First end course registration
+----AVAILABLE OPTIONS----
+Press 1=To start a new session
+!Press 2=To start course floating
+%Press 3=To start course registration
+"Press 4=To start grade submission
+!Press 5=To stop grade submission
+$Press 6=To stop course registration
+ Press 7=To stop course floating
+Press 8=To end the session
+0Press 9=To go back to academic office home page
+)Enter your choice:Choices in the funct=8
+
+yaarN Y 0
+End course registration
+----AVAILABLE OPTIONS----
+Press 1=To start a new session
+!Press 2=To start course floating
+%Press 3=To start course registration
+"Press 4=To start grade submission
+!Press 5=To stop grade submission
+$Press 6=To stop course registration
+ Press 7=To stop course floating
+Press 8=To end the session
+0Press 9=To go back to academic office home page
+)Enter your choice:Choices in the funct=9
+4Press 1 to go back to login page else 0 to continue:----ACADEMIC OFFICE LOGIN----
+#Press 1=View grade of all students
+>Press 2=To edit the course catalog(add or remove new courses)
+,Press 3=To generate transcripts of students
+\Press 4=To add a session information, whether to allow course registration,grade submission
+=Press 5=To specify a course for current session and its type
+ Enter your choice:mera choice=4
+----AVAILABLE OPTIONS----
+Press 1=To start a new session
+!Press 2=To start course floating
+%Press 3=To start course registration
+"Press 4=To start grade submission
+!Press 5=To stop grade submission
+$Press 6=To stop course registration
+ Press 7=To stop course floating
+Press 8=To end the session
+0Press 9=To go back to academic office home page
+)Enter your choice:Choices in the funct=6
+COURSE REGISTRATION STOPPED
+----AVAILABLE OPTIONS----
+Press 1=To start a new session
+!Press 2=To start course floating
+%Press 3=To start course registration
+"Press 4=To start grade submission
+!Press 5=To stop grade submission
+$Press 6=To stop course registration
+ Press 7=To stop course floating
+Press 8=To end the session
+0Press 9=To go back to academic office home page
+)Enter your choice:Choices in the funct=9
+4Press 1 to go back to login page else 0 to continue:----ACADEMIC OFFICE LOGIN----
+#Press 1=View grade of all students
+>Press 2=To edit the course catalog(add or remove new courses)
+,Press 3=To generate transcripts of students
+\Press 4=To add a session information, whether to allow course registration,grade submission
+=Press 5=To specify a course for current session and its type
+ Enter your choice:mera choice=4
+----AVAILABLE OPTIONS----
+Press 1=To start a new session
+!Press 2=To start course floating
+%Press 3=To start course registration
+"Press 4=To start grade submission
+!Press 5=To stop grade submission
+$Press 6=To stop course registration
+ Press 7=To stop course floating
+Press 8=To end the session
+0Press 9=To go back to academic office home page
+)Enter your choice:Choices in the funct=8
+
+yaarN N N
+'session=2020-1 finished. Thank you!!!!
+----AVAILABLE OPTIONS----
+Press 1=To start a new session
+!Press 2=To start course floating
+%Press 3=To start course registration
+"Press 4=To start grade submission
+!Press 5=To stop grade submission
+$Press 6=To stop course registration
+ Press 7=To stop course floating
+Press 8=To end the session
+0Press 9=To go back to academic office home page
+)Enter your choice:Choices in the funct=9
+4Press 1 to go back to login page else 0 to continue:----ACADEMIC OFFICE LOGIN----
+#Press 1=View grade of all students
+>Press 2=To edit the course catalog(add or remove new courses)
+,Press 3=To generate transcripts of students
+\Press 4=To add a session information, whether to allow course registration,grade submission
+=Press 5=To specify a course for current session and its type
+ Enter your choice:mera choice=5
+4Program cores added for this semester successfully!
+8Engineering cores added for this semester successfully!
+0Electives added for this semester successfully!
+4Press 1 to go back to login page else 0 to continue:----ACADEMIC OFFICE LOGIN----
+#Press 1=View grade of all students
+>Press 2=To edit the course catalog(add or remove new courses)
+,Press 3=To generate transcripts of students
+\Press 4=To add a session information, whether to allow course registration,grade submission
+=Press 5=To specify a course for current session and its type
+ Enter your choice:mera choice=5
+4Program cores added for this semester successfully!
+8Engineering cores added for this semester successfully!
+0Electives added for this semester successfully!
+4Press 1 to go back to login page else 0 to continue: ----ACADEMIC OFFICE LOGIN----
+ #Press 1=View grade of all students
+ >Press 2=To edit the course catalog(add or remove new courses)
+ ,Press 3=To generate transcripts of students
+ \Press 4=To add a session information, whether to allow course registration,grade submission
+ =Press 5=To specify a course for current session and its type
+  Enter your choice:mera choice=1
+ yo
+ Enter student Entry Number:
+ true false
+ 2No course has been completed by the given student
+ 4Press 1 to go back to login page else 0 to continue:"!----ACADEMIC OFFICE LOGIN----
+"!#Press 1=View grade of all students
+"!>Press 2=To edit the course catalog(add or remove new courses)
+"!,Press 3=To generate transcripts of students
+"!\Press 4=To add a session information, whether to allow course registration,grade submission
+"!=Press 5=To specify a course for current session and its type
+"! Enter your choice:mera choice=4
+"!----AVAILABLE OPTIONS----
+"!Press 1=To start a new session
+"!!Press 2=To start course floating
+"!%Press 3=To start course registration
+"!"Press 4=To start grade submission
+"!!Press 5=To stop grade submission
+"!$Press 6=To stop course registration
+"! Press 7=To stop course floating
+"!Press 8=To end the session
+"!0Press 9=To go back to academic office home page
+"!)Enter your choice:Choices in the funct=8
+"! No session is currently running
+"!----AVAILABLE OPTIONS----
+"!Press 1=To start a new session
+"!!Press 2=To start course floating
+"!%Press 3=To start course registration
+"!"Press 4=To start grade submission
+"!!Press 5=To stop grade submission
+"!$Press 6=To stop course registration
+"! Press 7=To stop course floating
+"!Press 8=To end the session
+"!0Press 9=To go back to academic office home page
+"!)Enter your choice:Choices in the funct=7
+"! No session is currently running
+"!----AVAILABLE OPTIONS----
+"!Press 1=To start a new session
+"!!Press 2=To start course floating
+"!%Press 3=To start course registration
+"!"Press 4=To start grade submission
+"!!Press 5=To stop grade submission
+"!$Press 6=To stop course registration
+"! Press 7=To stop course floating
+"!Press 8=To end the session
+"!0Press 9=To go back to academic office home page
+"!)Enter your choice:Choices in the funct=6
+"! No session is currently running
+"!----AVAILABLE OPTIONS----
+"!Press 1=To start a new session
+"!!Press 2=To start course floating
+"!%Press 3=To start course registration
+"!"Press 4=To start grade submission
+"!!Press 5=To stop grade submission
+"!$Press 6=To stop course registration
+"! Press 7=To stop course floating
+"!Press 8=To end the session
+"!0Press 9=To go back to academic office home page
+"!)Enter your choice:Choices in the funct=5
+"! No session is currently running
+"!----AVAILABLE OPTIONS----
+"!Press 1=To start a new session
+"!!Press 2=To start course floating
+"!%Press 3=To start course registration
+"!"Press 4=To start grade submission
+"!!Press 5=To stop grade submission
+"!$Press 6=To stop course registration
+"! Press 7=To stop course floating
+"!Press 8=To end the session
+"!0Press 9=To go back to academic office home page
+"!)Enter your choice:Choices in the funct=4
+"! No session is currently running
+"!----AVAILABLE OPTIONS----
+"!Press 1=To start a new session
+"!!Press 2=To start course floating
+"!%Press 3=To start course registration
+"!"Press 4=To start grade submission
+"!!Press 5=To stop grade submission
+"!$Press 6=To stop course registration
+"! Press 7=To stop course floating
+"!Press 8=To end the session
+"!0Press 9=To go back to academic office home page
+"!)Enter your choice:Choices in the funct=3
+"!yo bhai
+"! No session is currently running
+"!----AVAILABLE OPTIONS----
+"!Press 1=To start a new session
+"!!Press 2=To start course floating
+"!%Press 3=To start course registration
+"!"Press 4=To start grade submission
+"!!Press 5=To stop grade submission
+"!$Press 6=To stop course registration
+"! Press 7=To stop course floating
+"!Press 8=To end the session
+"!0Press 9=To go back to academic office home page
+"!)Enter your choice:Choices in the funct=2
+"!	choice 2
+"!There is no running session
+"!----AVAILABLE OPTIONS----
+"!Press 1=To start a new session
+"!!Press 2=To start course floating
+"!%Press 3=To start course registration
+"!"Press 4=To start grade submission
+"!!Press 5=To stop grade submission
+"!$Press 6=To stop course registration
+"! Press 7=To stop course floating
+"!Press 8=To end the session
+"!0Press 9=To go back to academic office home page
+"!)Enter your choice:Choices in the funct=1
+"!REnter new session:insert into event_table_acads values('2020-1','Y','0','0','0');
+"!----AVAILABLE OPTIONS----
+"!Press 1=To start a new session
+"!!Press 2=To start course floating
+"!%Press 3=To start course registration
+"!"Press 4=To start grade submission
+"!!Press 5=To stop grade submission
+"!$Press 6=To stop course registration
+"! Press 7=To stop course floating
+"!Press 8=To end the session
+"!0Press 9=To go back to academic office home page
+"!)Enter your choice:Choices in the funct=1
+"!9Already a session running. You can't enter a new session
+"!----AVAILABLE OPTIONS----
+"!Press 1=To start a new session
+"!!Press 2=To start course floating
+"!%Press 3=To start course registration
+"!"Press 4=To start grade submission
+"!!Press 5=To stop grade submission
+"!$Press 6=To stop course registration
+"! Press 7=To stop course floating
+"!Press 8=To end the session
+"!0Press 9=To go back to academic office home page
+"!)Enter your choice:Choices in the funct=9
+"!4Press 1 to go back to login page else 0 to continue:$#----ACADEMIC OFFICE LOGIN----
+$##Press 1=View grade of all students
+$#>Press 2=To edit the course catalog(add or remove new courses)
+$#,Press 3=To generate transcripts of students
+$#\Press 4=To add a session information, whether to allow course registration,grade submission
+$#=Press 5=To specify a course for current session and its type
+$# Enter your choice:mera choice=4
+$#----AVAILABLE OPTIONS----
+$#Press 1=To start a new session
+$#!Press 2=To start course floating
+$#%Press 3=To start course registration
+$#"Press 4=To start grade submission
+$#!Press 5=To stop grade submission
+$#$Press 6=To stop course registration
+$# Press 7=To stop course floating
+$#Press 8=To end the session
+$#0Press 9=To go back to academic office home page
+$#)Enter your choice:Choices in the funct=4
+$#0 0 0
+$#First start course floating
+$#----AVAILABLE OPTIONS----
+$#Press 1=To start a new session
+$#!Press 2=To start course floating
+$#%Press 3=To start course registration
+$#"Press 4=To start grade submission
+$#!Press 5=To stop grade submission
+$#$Press 6=To stop course registration
+$# Press 7=To stop course floating
+$#Press 8=To end the session
+$#0Press 9=To go back to academic office home page
+$#)Enter your choice:Choices in the funct=3
+$#yo bhai
+$#courses floated=0
+$#?Can't open course registration before allowing course floating
+$#----AVAILABLE OPTIONS----
+$#Press 1=To start a new session
+$#!Press 2=To start course floating
+$#%Press 3=To start course registration
+$#"Press 4=To start grade submission
+$#!Press 5=To stop grade submission
+$#$Press 6=To stop course registration
+$# Press 7=To stop course floating
+$#Press 8=To end the session
+$#0Press 9=To go back to academic office home page
+$#)Enter your choice:Choices in the funct=2
+$#	choice 2
+$#+Course floating started for session=2020-1
+$#----AVAILABLE OPTIONS----
+$#Press 1=To start a new session
+$#!Press 2=To start course floating
+$#%Press 3=To start course registration
+$#"Press 4=To start grade submission
+$#!Press 5=To stop grade submission
+$#$Press 6=To stop course registration
+$# Press 7=To stop course floating
+$#Press 8=To end the session
+$#0Press 9=To go back to academic office home page
+$#)Enter your choice:Choices in the funct=2
+$#	choice 2
+$#5You can start course floating only once in a session
+$#----AVAILABLE OPTIONS----
+$#Press 1=To start a new session
+$#!Press 2=To start course floating
+$#%Press 3=To start course registration
+$#"Press 4=To start grade submission
+$#!Press 5=To stop grade submission
+$#$Press 6=To stop course registration
+$# Press 7=To stop course floating
+$#Press 8=To end the session
+$#0Press 9=To go back to academic office home page
+$#)Enter your choice:Choices in the funct=7
+$#COURSE FLOATING STOPPED
+$#----AVAILABLE OPTIONS----
+$#Press 1=To start a new session
+$#!Press 2=To start course floating
+$#%Press 3=To start course registration
+$#"Press 4=To start grade submission
+$#!Press 5=To stop grade submission
+$#$Press 6=To stop course registration
+$# Press 7=To stop course floating
+$#Press 8=To end the session
+$#0Press 9=To go back to academic office home page
+$#)Enter your choice:Choices in the funct=8
+$#
+yaarN 0 0
+$#End course registration
+$#----AVAILABLE OPTIONS----
+$#Press 1=To start a new session
+$#!Press 2=To start course floating
+$#%Press 3=To start course registration
+$#"Press 4=To start grade submission
+$#!Press 5=To stop grade submission
+$#$Press 6=To stop course registration
+$# Press 7=To stop course floating
+$#Press 8=To end the session
+$#0Press 9=To go back to academic office home page
+$#)Enter your choice:Choices in the funct=9
+$#4Press 1 to go back to login page else 0 to continue:&%----ACADEMIC OFFICE LOGIN----
+&%#Press 1=View grade of all students
+&%>Press 2=To edit the course catalog(add or remove new courses)
+&%,Press 3=To generate transcripts of students
+&%\Press 4=To add a session information, whether to allow course registration,grade submission
+&%=Press 5=To specify a course for current session and its type
+&% Enter your choice:mera choice=4
+&%----AVAILABLE OPTIONS----
+&%Press 1=To start a new session
+&%!Press 2=To start course floating
+&%%Press 3=To start course registration
+&%"Press 4=To start grade submission
+&%!Press 5=To stop grade submission
+&%$Press 6=To stop course registration
+&% Press 7=To stop course floating
+&%Press 8=To end the session
+&%0Press 9=To go back to academic office home page
+&%)Enter your choice:Choices in the funct=6
+&%$Course registration not yet started
+&%----AVAILABLE OPTIONS----
+&%Press 1=To start a new session
+&%!Press 2=To start course floating
+&%%Press 3=To start course registration
+&%"Press 4=To start grade submission
+&%!Press 5=To stop grade submission
+&%$Press 6=To stop course registration
+&% Press 7=To stop course floating
+&%Press 8=To end the session
+&%0Press 9=To go back to academic office home page
+&%)Enter your choice:Choices in the funct=3
+&%yo bhai
+&%courses floated=Y
+&%Course registration opened
+&%----AVAILABLE OPTIONS----
+&%Press 1=To start a new session
+&%!Press 2=To start course floating
+&%%Press 3=To start course registration
+&%"Press 4=To start grade submission
+&%!Press 5=To stop grade submission
+&%$Press 6=To stop course registration
+&% Press 7=To stop course floating
+&%Press 8=To end the session
+&%0Press 9=To go back to academic office home page
+&%)Enter your choice:Choices in the funct=3
+&%yo bhai
+&%courses floated=Y
+&%5You can start course add/drop only once in a session
+&%----AVAILABLE OPTIONS----
+&%Press 1=To start a new session
+&%!Press 2=To start course floating
+&%%Press 3=To start course registration
+&%"Press 4=To start grade submission
+&%!Press 5=To stop grade submission
+&%$Press 6=To stop course registration
+&% Press 7=To stop course floating
+&%Press 8=To end the session
+&%0Press 9=To go back to academic office home page
+&%)Enter your choice:Choices in the funct=8
+&%
+yaarY Y 0
+&%End course floating
+&%----AVAILABLE OPTIONS----
+&%Press 1=To start a new session
+&%!Press 2=To start course floating
+&%%Press 3=To start course registration
+&%"Press 4=To start grade submission
+&%!Press 5=To stop grade submission
+&%$Press 6=To stop course registration
+&% Press 7=To stop course floating
+&%Press 8=To end the session
+&%0Press 9=To go back to academic office home page
+&%)Enter your choice:Choices in the funct=9
+&%4Press 1 to go back to login page else 0 to continue:('----ACADEMIC OFFICE LOGIN----
+('#Press 1=View grade of all students
+('>Press 2=To edit the course catalog(add or remove new courses)
+(',Press 3=To generate transcripts of students
+('\Press 4=To add a session information, whether to allow course registration,grade submission
+('=Press 5=To specify a course for current session and its type
+(' Enter your choice:mera choice=4
+('----AVAILABLE OPTIONS----
+('Press 1=To start a new session
+('!Press 2=To start course floating
+('%Press 3=To start course registration
+('"Press 4=To start grade submission
+('!Press 5=To stop grade submission
+('$Press 6=To stop course registration
+(' Press 7=To stop course floating
+('Press 8=To end the session
+('0Press 9=To go back to academic office home page
+(')Enter your choice:Choices in the funct=5
+('!Grade submission not yet started
+('----AVAILABLE OPTIONS----
+('Press 1=To start a new session
+('!Press 2=To start course floating
+('%Press 3=To start course registration
+('"Press 4=To start grade submission
+('!Press 5=To stop grade submission
+('$Press 6=To stop course registration
+(' Press 7=To stop course floating
+('Press 8=To end the session
+('0Press 9=To go back to academic office home page
+(')Enter your choice:Choices in the funct=4
+('&Grade submission by faculties allowed
+('----AVAILABLE OPTIONS----
+('Press 1=To start a new session
+('!Press 2=To start course floating
+('%Press 3=To start course registration
+('"Press 4=To start grade submission
+('!Press 5=To stop grade submission
+('$Press 6=To stop course registration
+(' Press 7=To stop course floating
+('Press 8=To end the session
+('0Press 9=To go back to academic office home page
+(')Enter your choice:Choices in the funct=5
+('Grade Submission stopped
+('----AVAILABLE OPTIONS----
+('Press 1=To start a new session
+('!Press 2=To start course floating
+('%Press 3=To start course registration
+('"Press 4=To start grade submission
+('!Press 5=To stop grade submission
+('$Press 6=To stop course registration
+(' Press 7=To stop course floating
+('Press 8=To end the session
+('0Press 9=To go back to academic office home page
+(')Enter your choice:Choices in the funct=9
+('4Press 1 to go back to login page else 0 to continue:*)----ACADEMIC OFFICE LOGIN----
+*)#Press 1=View grade of all students
+*)>Press 2=To edit the course catalog(add or remove new courses)
+*),Press 3=To generate transcripts of students
+*)\Press 4=To add a session information, whether to allow course registration,grade submission
+*)=Press 5=To specify a course for current session and its type
+*) Enter your choice:mera choice=4
+*)----AVAILABLE OPTIONS----
+*)Press 1=To start a new session
+*)!Press 2=To start course floating
+*)%Press 3=To start course registration
+*)"Press 4=To start grade submission
+*)!Press 5=To stop grade submission
+*)$Press 6=To stop course registration
+*) Press 7=To stop course floating
+*)Press 8=To end the session
+*)0Press 9=To go back to academic office home page
+*))Enter your choice:Choices in the funct=4
+*)$Grade submission allowed only once.
+*)----AVAILABLE OPTIONS----
+*)Press 1=To start a new session
+*)!Press 2=To start course floating
+*)%Press 3=To start course registration
+*)"Press 4=To start grade submission
+*)!Press 5=To stop grade submission
+*)$Press 6=To stop course registration
+*) Press 7=To stop course floating
+*)Press 8=To end the session
+*)0Press 9=To go back to academic office home page
+*))Enter your choice:Choices in the funct=9
+*)4Press 1 to go back to login page else 0 to continue:,+----ACADEMIC OFFICE LOGIN----
+,+#Press 1=View grade of all students
+,+>Press 2=To edit the course catalog(add or remove new courses)
+,+,Press 3=To generate transcripts of students
+,+\Press 4=To add a session information, whether to allow course registration,grade submission
+,+=Press 5=To specify a course for current session and its type
+,+ Enter your choice:mera choice=4
+,+----AVAILABLE OPTIONS----
+,+Press 1=To start a new session
+,+!Press 2=To start course floating
+,+%Press 3=To start course registration
+,+"Press 4=To start grade submission
+,+!Press 5=To stop grade submission
+,+$Press 6=To stop course registration
+,+ Press 7=To stop course floating
+,+Press 8=To end the session
+,+0Press 9=To go back to academic office home page
+,+)Enter your choice:Choices in the funct=4
+,+First end course registration
+,+----AVAILABLE OPTIONS----
+,+Press 1=To start a new session
+,+!Press 2=To start course floating
+,+%Press 3=To start course registration
+,+"Press 4=To start grade submission
+,+!Press 5=To stop grade submission
+,+$Press 6=To stop course registration
+,+ Press 7=To stop course floating
+,+Press 8=To end the session
+,+0Press 9=To go back to academic office home page
+,+)Enter your choice:Choices in the funct=9
+,+4Press 1 to go back to login page else 0 to continue:.-----ACADEMIC OFFICE LOGIN----
+.-#Press 1=View grade of all students
+.->Press 2=To edit the course catalog(add or remove new courses)
+.-,Press 3=To generate transcripts of students
+.-\Press 4=To add a session information, whether to allow course registration,grade submission
+.-=Press 5=To specify a course for current session and its type
+.- Enter your choice:mera choice=4
+.-----AVAILABLE OPTIONS----
+.-Press 1=To start a new session
+.-!Press 2=To start course floating
+.-%Press 3=To start course registration
+.-"Press 4=To start grade submission
+.-!Press 5=To stop grade submission
+.-$Press 6=To stop course registration
+.- Press 7=To stop course floating
+.-Press 8=To end the session
+.-0Press 9=To go back to academic office home page
+.-)Enter your choice:Choices in the funct=4
+.- First start course registration
+.-----AVAILABLE OPTIONS----
+.-Press 1=To start a new session
+.-!Press 2=To start course floating
+.-%Press 3=To start course registration
+.-"Press 4=To start grade submission
+.-!Press 5=To stop grade submission
+.-$Press 6=To stop course registration
+.- Press 7=To stop course floating
+.-Press 8=To end the session
+.-0Press 9=To go back to academic office home page
+.-)Enter your choice:Choices in the funct=9
+.-4Press 1 to go back to login page else 0 to continue:0/----FACULTY LOGIN----
+0/#Press 1=View grade of all students
+0/Press 2=Register the courses
+0/Press 3=Deregister the courses
+0/)Press 4=Update course grade for students
+0/Press 5=To generate transcript
+0/FEnter your choice:Please enter student ID:current session bhai=2021-1
+0/Current Semester=3
+0/4Student didn't did any course in the session 2021-1
+0/APress 1 to go back to login page else 0 to continue:Value of t=1
+21----FACULTY LOGIN----
+21#Press 1=View grade of all students
+21Press 2=Register the courses
+21Press 3=Deregister the courses
+21)Press 4=Update course grade for students
+21Press 5=To generate transcript
+21<Enter your choice:Enter student Entry Number:CS101 2020-1 B
+21MA102 2020-2 A-
+21GE104 2020-2 B
+21HS201 2021-1 NA
+21GE103 2020-1 A
+21CS201 2021-1 NA
+21
+true true
+21APress 1 to go back to login page else 0 to continue:Value of t=1
+43----FACULTY LOGIN----
+43#Press 1=View grade of all students
+43Press 2=Register the courses
+43Press 3=Deregister the courses
+43)Press 4=Update course grade for students
+43Press 5=To generate transcript
+43rEnter your choice:Enter the course to deregister:Press 1 to go back to login page else 0 to continue:Value of t=1
+65----FACULTY LOGIN----
+65#Press 1=View grade of all students
+65Press 2=Register the courses
+65Press 3=Deregister the courses
+65)Press 4=Update course grade for students
+65Press 5=To generate transcript
+654Enter your choice:You can't deregister courses now.
+65APress 1 to go back to login page else 0 to continue:Value of t=1
+87----FACULTY LOGIN----
+87#Press 1=View grade of all students
+87Press 2=Register the courses
+87Press 3=Deregister the courses
+87)Press 4=Update course grade for students
+87Press 5=To generate transcript
+87kEnter your choice:Enter the course to deregister:The course you entered is not floated,can't deregister it
+87_Press 0 to exit, 1 to continuePress 1 to go back to login page else 0 to continue:Value of t=1
+:9----FACULTY LOGIN----
+:9#Press 1=View grade of all students
+:9Press 2=Register the courses
+:9Press 3=Deregister the courses
+:9)Press 4=Update course grade for students
+:9Press 5=To generate transcript
+:9@Enter your choice:Enter student Entry Number:Invalid student ID
+:9APress 1 to go back to login page else 0 to continue:Value of t=1
+<;----FACULTY LOGIN----
+<;#Press 1=View grade of all students
+<;Press 2=Register the courses
+<;Press 3=Deregister the courses
+<;)Press 4=Update course grade for students
+<;Press 5=To generate transcript
+<;8Enter your choice:Enter student Entry Number:true false
+<;2No course has been completed by the given student
+<;APress 1 to go back to login page else 0 to continue:Value of t=1
+>=----FACULTY LOGIN----
+>=#Press 1=View grade of all students
+>=Press 2=Register the courses
+>=Press 3=Deregister the courses
+>=)Press 4=Update course grade for students
+>=Press 5=To generate transcript
+>=DEnter your choice:NO PROGRAM COURSES ARE THERE TO BE OFFERED BY YOU
+>=;NO ENGINEERING CORE COURSES ARE THERE TO BE OFFERED BY YOU
+>=3NO ELECTIVE COURSES ARE THERE TO BE OFFERED BY YOU
+>=9NO COURSES ARE AVAILABLE FOR YOUR OFFERING, PLEASE EXIT!
+>=	option 2
+>=APress 1 to go back to login page else 0 to continue:Value of t=1
+@?----FACULTY LOGIN----
+@?#Press 1=View grade of all students
+@?Press 2=Register the courses
+@?Press 3=Deregister the courses
+@?)Press 4=Update course grade for students
+@?Press 5=To generate transcript
+@?>Enter your choice:PROGRAM CORE COURSES AVAILABLE FOR OFFERING
+@?CS201
+@?;NO ENGINEERING CORE COURSES ARE THERE TO BE OFFERED BY YOU
+@?3NO ELECTIVE COURSES ARE THERE TO BE OFFERED BY YOU
+@?{Enter ID of the course you want to offer:Enter CG constraint if any, else press 0:Courses has been registered successfully
+@?9Press 0 to continue, else Press enter 1 to exit:option 2
+@?APress 1 to go back to login page else 0 to continue:Value of t=1
+BA----FACULTY LOGIN----
+BA#Press 1=View grade of all students
+BAPress 2=Register the courses
+BAPress 3=Deregister the courses
+BA)Press 4=Update course grade for students
+BAPress 5=To generate transcript
+BA>Enter your choice:PROGRAM CORE COURSES AVAILABLE FOR OFFERING
+BACS201
+BA0ENGINEERING CORE COURSES AVAILABLE FOR OFFERING
+BACS302
+BA3NO ELECTIVE COURSES ARE THERE TO BE OFFERED BY YOU
+BA{Enter ID of the course you want to offer:Enter CG constraint if any, else press 0:Courses has been registered successfully
+BA9Press 0 to continue, else Press enter 1 to exit:option 2
+BAAPress 1 to go back to login page else 0 to continue:Value of t=1
+DC----FACULTY LOGIN----
+DC#Press 1=View grade of all students
+DCPress 2=Register the courses
+DCPress 3=Deregister the courses
+DC)Press 4=Update course grade for students
+DCPress 5=To generate transcript
+DC>Enter your choice:PROGRAM CORE COURSES AVAILABLE FOR OFFERING
+DCCS201
+DC;NO ENGINEERING CORE COURSES ARE THERE TO BE OFFERED BY YOU
+DC(ELECTIVE COURSES AVAILABLE FOR OFFERING
+DCCS302
+DC{Enter ID of the course you want to offer:Enter CG constraint if any, else press 0:Courses has been registered successfully
+DC9Press 0 to continue, else Press enter 1 to exit:option 2
+DCAPress 1 to go back to login page else 0 to continue:Value of t=1
+FE----FACULTY LOGIN----
+FE#Press 1=View grade of all students
+FEPress 2=Register the courses
+FEPress 3=Deregister the courses
+FE)Press 4=Update course grade for students
+FEPress 5=To generate transcript
+FE=Enter your choice:Grades updated successfully from CSV file!
+FEAPress 1 to go back to login page else 0 to continue:Value of t=1
+HG----FACULTY LOGIN----
+HG#Press 1=View grade of all students
+HGPress 2=Register the courses
+HGPress 3=Deregister the courses
+HG)Press 4=Update course grade for students
+HGPress 5=To generate transcript
+HGXEnter your choice:Grade submission not allowed right now.Please contact ACADEMIC OFFICE
+HGAPress 1 to go back to login page else 0 to continue:Value of t=1
+JI----STUDENT LOGIN----
+JI/Press 1=To view records up to current semester
+JIPress 2=To view current CGPA
+JI)Press 3=To register for current semester
+JI%Press 4=To view personal information
+JI"Press 5=Edit personal information
+JI>Press 6=To check the list of eligible students for graduation
+JI Enter your choice:bhai choice=1
+JI6Record generated as a transcript in Transcript folder
+JIcurrent session bhai=2021-1
+JICurrent Semester=3
+JI4Student didn't did any course in the session 2021-1
+JIBPress 1 to go back to login page else 0 to continue:Exit choice=1
+LK----STUDENT LOGIN----
+LK/Press 1=To view records up to current semester
+LKPress 2=To view current CGPA
+LK)Press 3=To register for current semester
+LK%Press 4=To view personal information
+LK"Press 5=Edit personal information
+LK>Press 6=To check the list of eligible students for graduation
+LK Enter your choice:bhai choice=2
+LKYOur current CGPA is:8.75
+LKBPress 1 to go back to login page else 0 to continue:Exit choice=1
+NM----STUDENT LOGIN----
+NM/Press 1=To view records up to current semester
+NMPress 2=To view current CGPA
+NM)Press 3=To register for current semester
+NM%Press 4=To view personal information
+NM"Press 5=Edit personal information
+NM>Press 6=To check the list of eligible students for graduation
+NM Enter your choice:bhai choice=4
+NM
+NM
+NM
+NM
+NMENTRY NUMBER:=2020CSB1103
+NMNAME:=Nishant Verma
+NM#EMAIL ID:=2020csb1103@iitrpr.ac.in
+NMCONTACT NUMBER:=1234567890
+NMBPress 1 to go back to login page else 0 to continue:Exit choice=1
+PO----STUDENT LOGIN----
+PO/Press 1=To view records up to current semester
+POPress 2=To view current CGPA
+PO)Press 3=To register for current semester
+PO%Press 4=To view personal information
+PO"Press 5=Edit personal information
+PO>Press 6=To check the list of eligible students for graduation
+PO Enter your choice:bhai choice=5
+POjEnter new name:Enter new contact number:Press 1 to go back to login page else 0 to continue:Exit choice=1
+RQ----STUDENT LOGIN----
+RQ/Press 1=To view records up to current semester
+RQPress 2=To view current CGPA
+RQ)Press 3=To register for current semester
+RQ%Press 4=To view personal information
+RQ"Press 5=Edit personal information
+RQ>Press 6=To check the list of eligible students for graduation
+RQ Enter your choice:bhai choice=6
+RQ[3, 1, 0, 5, 3]
+RQCS101 PC 3.0
+RQ[3, 1, 0, 5, 3]
+RQMA102 EC 3.0
+RQ[2, 1, 2, 4, 3]
+RQGE104 EC 3.0
+RQ[3, 0, 3, 7.5, 3]
+RQGE103 EC 3.0
+RQ[3, 1, 2, 6, 20]
+RQCS500 PC 20.0
+RQ[3, 1, 2, 6, 20]
+RQHS500 EC 20.0
+RQ[3, 1, 2, 6, 20]
+RQMA500 EL 20.0
+RQ23.0 29.0 20.0
+RQ#Student has not completed the btp!
+RQBPress 1 to go back to login page else 0 to continue:Exit choice=1
+TS----STUDENT LOGIN----
+TS/Press 1=To view records up to current semester
+TSPress 2=To view current CGPA
+TS)Press 3=To register for current semester
+TS%Press 4=To view personal information
+TS"Press 5=Edit personal information
+TS>Press 6=To check the list of eligible students for graduation
+TS Enter your choice:bhai choice=6
+TS[3, 1, 0, 5, 3]
+TSCS101 PC 3.0
+TS[3, 1, 0, 5, 3]
+TSMA102 EC 3.0
+TS[2, 1, 2, 4, 3]
+TSGE104 EC 3.0
+TS[3, 0, 3, 7.5, 3]
+TSGE103 EC 3.0
+TS[3, 1, 2, 6, 20]
+TSCS500 PC 20.0
+TS[3, 1, 2, 6, 20]
+TSHS500 EC 20.0
+TS[3, 1, 2, 6, 20]
+TSMA500 EL 20.0
+TS[3, 1, 2, 6, 3]
+TSCP302 PC 3.0
+TS26.0 29.0 20.0
+TS/Student 2020CSB1103 is eligible for graduation
+TSBPress 1 to go back to login page else 0 to continue:Exit choice=1
+VU----STUDENT LOGIN----
+VU/Press 1=To view records up to current semester
+VUPress 2=To view current CGPA
+VU)Press 3=To register for current semester
+VU%Press 4=To view personal information
+VU"Press 5=Edit personal information
+VU>Press 6=To check the list of eligible students for graduation
+VU Enter your choice:bhai choice=6
+VU[3, 1, 2, 6, 20]
+VUCS500 PC 20.0
+VU20.0 0.0 0.0
+VU3Student 2020CSB1101 is not eligible for graduation
+VUBPress 1 to go back to login page else 0 to continue:Exit choice=1
+XW----STUDENT LOGIN----
+XW/Press 1=To view records up to current semester
+XWPress 2=To view current CGPA
+XW)Press 3=To register for current semester
+XW%Press 4=To view personal information
+XW"Press 5=Edit personal information
+XW>Press 6=To check the list of eligible students for graduation
+XW Enter your choice:bhai choice=6
+XW"Not completed graduation till now
+XWBPress 1 to go back to login page else 0 to continue:Exit choice=1
+ZY----STUDENT LOGIN----
+ZY/Press 1=To view records up to current semester
+ZYPress 2=To view current CGPA
+ZY)Press 3=To register for current semester
+ZY%Press 4=To view personal information
+ZY"Press 5=Edit personal information
+ZY>Press 6=To check the list of eligible students for graduation
+ZY Enter your choice:bhai choice=3
+ZYsem present
+ZYcurrent session bhai=2021-1
+ZYcurrent session bhai=2021-1
+ZY
+ZY
+ZY
+ZY)PR0GRAM CORE AVAILABLE FOR THIS SEMESTER
+ZY2SUBJECT  INSTRUCTOR-ID  SESSION   CGPA_CONSTRAINT
+ZY)CS201 anilshukla@iitrpr.ac.in 2021-1 0.0
+ZY
+ZY
+ZY
+ZY
+ZY.ENGINEERING CORE AVAILABLE FOR THIS SEMESTER:
+ZY2SUBJECT  INSTRUCTOR-ID  SESSION   CGPA_CONSTRAINT
+ZY'HS201 amritesh@iitrpr.ac.in 2021-1 0.0
+ZY'HS201 amritesh@iitrpr.ac.in 2021-1 0.0
+ZY
+ZY<Course CS201 already completed or you are registered in it.
+ZY<Course HS201 already completed or you are registered in it.
+ZY<Course HS201 already completed or you are registered in it.
+ZY.Total registered credits for this session=7.0
+ZYBPress 1 to go back to login page else 0 to continue:Exit choice=1
+\[----STUDENT LOGIN----
+\[/Press 1=To view records up to current semester
+\[Press 2=To view current CGPA
+\[)Press 3=To register for current semester
+\[%Press 4=To view personal information
+\["Press 5=Edit personal information
+\[>Press 6=To check the list of eligible students for graduation
+\[ Enter your choice:bhai choice=3
+\[sem present
+\[current session bhai=2021-1
+\[current session bhai=2021-1
+\[
+\[
+\[
+\[)PR0GRAM CORE AVAILABLE FOR THIS SEMESTER
+\[2SUBJECT  INSTRUCTOR-ID  SESSION   CGPA_CONSTRAINT
+\[)CS201 anilshukla@iitrpr.ac.in 2021-1 0.0
+\[
+\[
+\[
+\[
+\[.ENGINEERING CORE AVAILABLE FOR THIS SEMESTER:
+\[2SUBJECT  INSTRUCTOR-ID  SESSION   CGPA_CONSTRAINT
+\['HS201 amritesh@iitrpr.ac.in 2021-1 0.0
+\['HS201 amritesh@iitrpr.ac.in 2021-1 0.0
+\[
+\[<Course HS201 already completed or you are registered in it.
+\[.Total registered credits for this session=7.0
+\[BPress 1 to go back to login page else 0 to continue:Exit choice=1
+^]----STUDENT LOGIN----
+^]/Press 1=To view records up to current semester
+^]Press 2=To view current CGPA
+^])Press 3=To register for current semester
+^]%Press 4=To view personal information
+^]"Press 5=Edit personal information
+^]>Press 6=To check the list of eligible students for graduation
+^] Enter your choice:bhai choice=3
+^]sem present
+^]current session bhai=2021-1
+^]current session bhai=2021-1
+^]
+^]
+^]
+^])PR0GRAM CORE AVAILABLE FOR THIS SEMESTER
+^]2SUBJECT  INSTRUCTOR-ID  SESSION   CGPA_CONSTRAINT
+^]*CS201 anilshukla@iitrpr.ac.in 2021-1 10.0
+^]
+^]
+^]
+^]
+^].ENGINEERING CORE AVAILABLE FOR THIS SEMESTER:
+^]2SUBJECT  INSTRUCTOR-ID  SESSION   CGPA_CONSTRAINT
+^]'HS201 amritesh@iitrpr.ac.in 2021-1 0.0
+^]'HS201 amritesh@iitrpr.ac.in 2021-1 0.0
+^]
+^]OYou are failing CGPA requirements,hence you can't register in the course CS201
+^]<Course HS201 already completed or you are registered in it.
+^].Total registered credits for this session=3.0
+^]BPress 1 to go back to login page else 0 to continue:Exit choice=1
+`_----STUDENT LOGIN----
+`_/Press 1=To view records up to current semester
+`_Press 2=To view current CGPA
+`_)Press 3=To register for current semester
+`_%Press 4=To view personal information
+`_"Press 5=Edit personal information
+`_>Press 6=To check the list of eligible students for graduation
+`_ Enter your choice:bhai choice=3
+`_sem present
+`_current session bhai=2021-1
+`_current session bhai=2021-1
+`_
+`_
+`_
+`_)PR0GRAM CORE AVAILABLE FOR THIS SEMESTER
+`_2SUBJECT  INSTRUCTOR-ID  SESSION   CGPA_CONSTRAINT
+`_)CS201 anilshukla@iitrpr.ac.in 2021-1 0.0
+`_
+`_
+`_
+`_
+`_.ENGINEERING CORE AVAILABLE FOR THIS SEMESTER:
+`_2SUBJECT  INSTRUCTOR-ID  SESSION   CGPA_CONSTRAINT
+`_'HS201 amritesh@iitrpr.ac.in 2021-1 0.0
+`_'HS201 amritesh@iitrpr.ac.in 2021-1 0.0
+`_
+`_"Prerequisite CS210 not satisfied.
+`_<Course HS201 already completed or you are registered in it.
+`_.Total registered credits for this session=3.0
+`_BPress 1 to go back to login page else 0 to continue:Exit choice=1
+ba----STUDENT LOGIN----
+ba/Press 1=To view records up to current semester
+baPress 2=To view current CGPA
+ba)Press 3=To register for current semester
+ba%Press 4=To view personal information
+ba"Press 5=Edit personal information
+ba>Press 6=To check the list of eligible students for graduation
+ba Enter your choice:bhai choice=3
+baKNo semester is currently running or the course add/drop is not yet allowed
+baBPress 1 to go back to login page else 0 to continue:Exit choice=1
+dc----STUDENT LOGIN----
+dc/Press 1=To view records up to current semester
+dcPress 2=To view current CGPA
+dc)Press 3=To register for current semester
+dc%Press 4=To view personal information
+dc"Press 5=Edit personal information
+dc>Press 6=To check the list of eligible students for graduation
+dc Enter your choice:bhai choice=3
+dcsem present
+dccurrent session bhai=2021-1
+dccurrent session bhai=2021-1
+dc
+dc
+dc
+dc)PR0GRAM CORE AVAILABLE FOR THIS SEMESTER
+dc2SUBJECT  INSTRUCTOR-ID  SESSION   CGPA_CONSTRAINT
+ dceorg.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps you need to call next.
+ dcG	at org.postgresql.jdbc.PgResultSet.getRawValue(PgResultSet.java:3129)
+ dcE	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:2224)
+ dcE	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:2795)
+ dc[	at org.iitrpr.Pages.Students.Student_home_page.display_all_pc(Student_home_page.java:152)
+ dcU	at org.iitrpr.Pages.Students.Student_home_page.add_drop(Student_home_page.java:454)
+ dcd	at org.iitrpr.Pages.Students.Student_home_page.student_login_front_end(Student_home_page.java:509)
+ dcm	at org.iitrpr.Pages.Students.Student_home_pageTest7.student_login_front_end(Student_home_pageTest7.java:42)
+ dcS	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ dce	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+ dcm	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ dc?	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ dc[	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:725)
+ dcZ	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+ dcÑ	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+ dc]	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)
+ dck	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140)
+ dcf	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84)
+ dcÖ	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+ dce	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+ dcÖ	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+ dcn	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+ dcu	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+ dcm	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+ dc\	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+ dc[	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
+ dc~	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:214)
+ dcj	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+ dcu	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:210)
+ dcl	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:135)
+ dck	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:66)
+ dcs	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+ dcj	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+ dcs	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+ dcN	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+ dcs	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+ dcj	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+ dcj	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+ dc^	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+ dc?	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+ dcö	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+ dcs	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+ dcj	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+ dcs	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+ dcN	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+ dcs	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+ dcj	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+ dcj	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+ dc^	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+ dc?	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+ dcö	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+ dcs	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+ dcj	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+ dcs	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+ dcN	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+ dcs	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+ dcj	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+ dcj	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+ dc^	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+ dcó	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+ dcv	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+ dcr	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+ dco	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+ dcn	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+ dcw	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+ dc}	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+ dcn	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+ dcW	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+ dcV	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+ dcw	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+ dcj	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+ dcµ	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:99)
+ dc™	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:79)
+ dcÜ	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
+ dch	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
+ dcS	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ dce	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+ dcm	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ dc?	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ dcY	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+ dcY	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+ dci	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+ dcx	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+ dc7	at jdk.proxy2/jdk.proxy2.$Proxy5.stop(Unknown Source)
+ dcW	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+ dcn	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+ dcY	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+ dcX	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+ dcj	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+ dcÇ	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:133)
+ dcÅ	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
+ dc]	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+ dc^	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+dc
+dc
+dc
+dc.ENGINEERING CORE AVAILABLE FOR THIS SEMESTER:
+dc2SUBJECT  INSTRUCTOR-ID  SESSION   CGPA_CONSTRAINT
+dc'HS201 amritesh@iitrpr.ac.in 2021-1 0.0
+dc'HS201 amritesh@iitrpr.ac.in 2021-1 0.0
+dc
+dc%The course CS201 is not yet offered.
+dc<Course HS201 already completed or you are registered in it.
+dc.Total registered credits for this session=3.0
+dcBPress 1 to go back to login page else 0 to continue:Exit choice=1
+fe(Total Available credits in this sem:8.0
+fe Credits registered till now:0.0
+fe#Available credits for electives8.0
+feGE105
+fe"Press -1 to exit or 0 to continue
+feVEnter Elective course:The entered elective course is not present in offered electives
+fe"Press -1 to exit or 0 to continue
+fe8Enter Elective course:Press -1 to exit or 0 to continue
+hg(Total Available credits in this sem:4.0
+hg Credits registered till now:0.0
+hg#Available credits for electives4.0
+hg/No elective courses are offered by the faculty
+jineeraj@iitrpr.ac.in neeraj12
+jiTselect * from faculty  where emailid='neeraj@iitrpr.ac.in' and password='neeraj12';
+jkdeanstaff@iitrpr.ac.in acad1
+jk\select * from academic_office  where emailid='deanstaff@iitrpr.ac.in' and password='acad1';
+jl!2020csb1103@iitrpr.ac.in verma12
+jlYselect * from students  where emailid='2020csb1103@iitrpr.ac.in' and password='verma12';
+nmcurrent session bhai=2021-1
+nmCurrent Semester=3
+nm4Student didn't did any course in the session 2021-1

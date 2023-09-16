@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.iitrpr.Pages.Faculty.Faculty_home_pageTest5" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-03-09T15:29:23" hostname="nishant" time="0.084">
+  <properties/>
+  <testcase name="faculty_login_front_end()" classname="org.iitrpr.Pages.Faculty.Faculty_home_pageTest5" time="0.084"/>
+  <system-out><![CDATA[----FACULTY LOGIN----
+Press 1=View grade of all students
+Press 2=Register the courses
+Press 3=Deregister the courses
+Press 4=Update course grade for students
+Press 5=To generate transcript
+Enter your choice:PROGRAM CORE COURSES AVAILABLE FOR OFFERING
+CS201
+NO ENGINEERING CORE COURSES ARE THERE TO BE OFFERED BY YOU
+NO ELECTIVE COURSES ARE THERE TO BE OFFERED BY YOU
+Enter ID of the course you want to offer:Enter CG constraint if any, else press 0:Courses has been registered successfully
+Press 0 to continue, else Press enter 1 to exit:option 2
+Press 1 to go back to login page else 0 to continue:Value of t=1
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Academic_Office_home_page.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">mini_project_2</a> &gt; <a href="index.source.html" class="el_package">org.iitrpr.Pages.Academic_Office</a> &gt; <span class="el_source">Academic_Office_home_page.java</span></div><h1>Academic_Office_home_page.java</h1><pre class="source lang-java linenums">package org.iitrpr.Pages.Academic_Office;
+
+import com.opencsv.CSVWriter;
+
+import java.io.FileReader;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.FileWriter;
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvValidationException;
+import org.iitrpr.Utilities.Generate_Transcript;
+
+import java.util.Set;
+import java.util.HashSet;
+
+import java.util.HashMap;
+<span class="fc" id="L23">public class Academic_Office_home_page {</span>
+
+<span class="fc" id="L25">    public static String dir_path=&quot;/home/nishant/Documents/Academics/Software_Engineering/Project/mini_project_2/src/main/java/org/iitrpr/grade_submission&quot;;</span>
+<span class="fc" id="L26">    public static String dir_path_2=&quot;/home/nishant/Documents/Academics/Software_Engineering/Project/mini_project_2/src/main/java/org/iitrpr/courses&quot;;</span>
+    public static void view_grade(Scanner in,Statement stmt){
+        String student_id;
+<span class="fc" id="L29">        System.out.println(&quot;Enter student Entry Number:&quot;);</span>
+<span class="fc" id="L30">        student_id=in.next();</span>
+        try{
+<span class="fc" id="L32">            String query_student=&quot;select * from all_student_data where id='&quot;+student_id+&quot;' and grade!='NA';&quot;;</span>
+<span class="fc" id="L33">            String check_student=&quot;select * from students where id='&quot;+student_id+&quot;';&quot;;</span>
+<span class="fc" id="L34">            ResultSet rs_check_student=stmt.executeQuery(check_student);</span>
+<span class="fc" id="L35">            boolean student_present=false,data_present=false;</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">            while(rs_check_student.next()){</span>
+<span class="fc" id="L37">                student_present=true;</span>
+            }
+
+<span class="fc bfc" id="L40" title="All 2 branches covered.">            if(!student_present){</span>
+<span class="fc" id="L41">                System.out.println(&quot;Invalid student ID&quot;);</span>
+<span class="fc" id="L42">                return;</span>
+            }
+<span class="fc" id="L44">            ResultSet rs=stmt.executeQuery(query_student);</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">            while(rs.next()){</span>
+<span class="fc" id="L46">                data_present=true;</span>
+<span class="fc" id="L47">                System.out.println(rs.getString(&quot;courseid&quot;)+&quot; &quot;+rs.getString(&quot;session&quot;)+&quot; &quot;+rs.getString(&quot;grade&quot;));</span>
+            }
+<span class="fc" id="L49">            System.out.println(student_present+&quot; &quot;+data_present);</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">            if(!data_present){</span>
+<span class="fc" id="L51">                System.out.println(&quot;No course has been completed by the given student&quot;);</span>
+<span class="fc" id="L52">                return;</span>
+            }
+<span class="nc" id="L54">        }catch(SQLException e){</span>
+<span class="nc" id="L55">            e.printStackTrace();</span>
+<span class="fc" id="L56">        }</span>
+<span class="fc" id="L57">    }</span>
+
+    public static void view_course_catalog(Statement stmt){
+<span class="fc" id="L60">        String query=&quot;select * from course_catalog&quot;;</span>
+        try{
+<span class="fc" id="L62">            ResultSet rs=stmt.executeQuery(query);</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">            while(rs.next()){</span>
+<span class="fc" id="L64">                System.out.println(rs.getString(1)+&quot; &quot;+rs.getString(2)+&quot; &quot;+rs.getString(3)+&quot; &quot;+rs.getString(4)+&quot; &quot;+rs.getString(5));</span>
+            }
+<span class="nc" id="L66">        }catch(SQLException e){</span>
+<span class="nc" id="L67">            e.printStackTrace();</span>
+<span class="fc" id="L68">        }</span>
+<span class="fc" id="L69">    }</span>
+
+    public static void edit_course_catalog(Scanner in,Statement stmt){
+<span class="fc" id="L72">        int ch=0,view=0;</span>
+        do{
+            int n;
+<span class="fc" id="L75">            String course_id=&quot;&quot;,course_name=&quot;&quot;,ltpsc=&quot;&quot;,department=&quot;&quot;,query=&quot;&quot;;</span>
+<span class="fc" id="L76">            System.out.println(&quot;EDIT COURSE CATALOG MENU&quot;);</span>
+<span class="fc" id="L77">            System.out.println(&quot;Press 1: To add a course&quot;);</span>
+<span class="fc" id="L78">            System.out.println(&quot;Press 2: To view course catalog&quot;);</span>
+<span class="fc" id="L79">            System.out.println(&quot;Press 3: To exit course catalog&quot;);</span>
+<span class="fc" id="L80">            System.out.print(&quot;Enter your choice:&quot;);</span>
+<span class="fc" id="L81">            ch=in.nextInt();</span>
+<span class="fc" id="L82">            in.nextLine();</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">            if(ch == 2){</span>
+<span class="fc" id="L84">                view_course_catalog(stmt);</span>
+            }
+<span class="fc bfc" id="L86" title="All 2 branches covered.">            else if(ch == 3){</span>
+<span class="fc" id="L87">                return;</span>
+            }
+<span class="pc bpc" id="L89" title="1 of 2 branches missed.">            else if(ch == 1){</span>
+<span class="fc" id="L90">                System.out.print(&quot;Enter course id:&quot;);</span>
+<span class="fc" id="L91">                course_id=in.next();</span>
+<span class="fc" id="L92">                in.nextLine();</span>
+<span class="fc" id="L93">                System.out.print(&quot;Enter course name:&quot;);</span>
+<span class="fc" id="L94">                course_name=in.nextLine();</span>
+<span class="fc" id="L95">                System.out.print(&quot;Enter department:&quot;);</span>
+<span class="fc" id="L96">                department=in.nextLine();</span>
+<span class="fc" id="L97">                System.out.print(&quot;Enter L-T-P-S-C:&quot;);</span>
+<span class="fc" id="L98">                ltpsc=in.next();</span>
+<span class="fc" id="L99">                in.nextLine();</span>
+<span class="fc" id="L100">                System.out.print(&quot;Enter number of prerequisites:&quot;);</span>
+<span class="fc" id="L101">                n=in.nextInt();</span>
+<span class="fc" id="L102">                in.nextLine();</span>
+<span class="pc bpc" id="L103" title="1 of 2 branches missed.">                if(n == 0) n=1;</span>
+<span class="fc" id="L104">                String a[]=new String[n];</span>
+<span class="fc" id="L105">                System.out.print(&quot;Enter all n prerequisites space separated:&quot;);</span>
+<span class="fc bfc" id="L106" title="All 2 branches covered.">                for(int i=0;i&lt;n;i++){</span>
+<span class="fc" id="L107">                    a[i]=in.next();</span>
+                }
+<span class="fc" id="L109">                String all_subjects=&quot;&quot;;</span>
+<span class="fc" id="L110">                query=&quot;insert into course_catalog values ('&quot;+course_id+&quot;','&quot;+course_name+&quot;','&quot;+department+&quot;','&quot;+ltpsc+&quot;','{&quot;;</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">                for(int i=0;i&lt;n;i++){</span>
+<span class="fc" id="L112">                    all_subjects=all_subjects+&quot;\&quot;&quot;+a[i]+&quot;\&quot;,&quot;;</span>
+                }
+<span class="fc" id="L114">                all_subjects=all_subjects.substring(0,all_subjects.length()-1);</span>
+<span class="fc" id="L115">                query=query+all_subjects+&quot;}');&quot;;</span>
+            }
+            /*System.out.println(query);*/
+            try{
+<span class="fc" id="L119">                stmt.executeUpdate(query);</span>
+            }
+<span class="nc" id="L121">            catch(SQLException e){</span>
+<span class="nc" id="L122">                e.printStackTrace();</span>
+<span class="fc" id="L123">            }</span>
+<span class="fc" id="L124">        }while(true);</span>
+    }
+
+    public static void remove_previous_grade_submissions(){
+        /**/
+<span class="fc" id="L129">        File directory=new File(dir_path);</span>
+<span class="fc" id="L130">        String file_names[]=directory.list();</span>
+<span class="fc bfc" id="L131" title="All 2 branches covered.">        for(String x:file_names){</span>
+<span class="fc" id="L132">            String file_name_path=dir_path+&quot;/&quot;+x;</span>
+<span class="fc" id="L133">            try (CSVWriter writer = new CSVWriter(new FileWriter(file_name_path))) {</span>
+<span class="fc" id="L134">                String [] header={&quot;Session&quot;,&quot;Studentid&quot;,&quot;Courseid&quot;,&quot;Grade&quot;};</span>
+<span class="fc" id="L135">                writer.writeNext(header);</span>
+<span class="nc" id="L136">            } catch (IOException e) {</span>
+<span class="nc" id="L137">                System.out.println(&quot;Error writing to CSV file: &quot; + e.getMessage());</span>
+<span class="fc" id="L138">            }</span>
+        }
+<span class="fc" id="L140">    }</span>
+
+    public static void add_courses_in_the_beginning_of_semester(Statement stmt,Connection conn) throws CsvValidationException, IOException {
+<span class="fc" id="L143">        String pc=dir_path_2+&quot;/&quot;+&quot;program_core.csv&quot;;</span>
+<span class="fc" id="L144">        String ec=dir_path_2+&quot;/&quot;+&quot;engineering_core.csv&quot;;</span>
+<span class="fc" id="L145">        String elec=dir_path_2+&quot;/&quot;+&quot;elective.csv&quot;;</span>
+        /*------------------------------------------------------------------------------*/
+<span class="fc" id="L147">        try (CSVReader reader = new CSVReader(new FileReader(pc))) {</span>
+<span class="fc" id="L148">            String[] header = reader.readNext();</span>
+<span class="pc bpc" id="L149" title="1 of 2 branches missed.">            if (header == null) {</span>
+<span class="nc" id="L150">                System.out.println(&quot;Program core CSV file is empty&quot;);</span>
+            }
+<span class="fc" id="L152">            stmt.executeUpdate(&quot;delete from program_core&quot;);</span>
+            String[] row;
+<span class="fc bfc" id="L154" title="All 2 branches covered.">            while ((row = reader.readNext()) != null) {</span>
+<span class="fc" id="L155">                stmt=conn.createStatement();</span>
+<span class="fc" id="L156">                String query=&quot;insert into program_core values('&quot;+row[0]+&quot;','&quot;+row[1]+&quot;',&quot;+row[2]+&quot;,&quot;+row[3]+&quot;);&quot;;</span>
+<span class="fc" id="L157">                stmt.executeUpdate(query);</span>
+<span class="fc" id="L158">            }</span>
+<span class="fc" id="L159">            System.out.println(&quot;Program cores added for this semester successfully!&quot;);</span>
+<span class="fc" id="L160">            stmt=conn.createStatement();</span>
+<span class="nc" id="L161">        } catch (SQLException e) {</span>
+<span class="nc" id="L162">            System.out.println(&quot;Error reading CSV file: &quot; + e.getMessage());</span>
+<span class="fc" id="L163">        }</span>
+        /*------------------------------------------------------------------------------*/
+
+        /*------------------------------------------------------------------------------*/
+<span class="fc" id="L167">        try (CSVReader reader = new CSVReader(new FileReader(ec))) {</span>
+<span class="fc" id="L168">            String[] header = reader.readNext();</span>
+<span class="pc bpc" id="L169" title="1 of 2 branches missed.">            if (header == null) {</span>
+<span class="nc" id="L170">                System.out.println(&quot;Engineering core CSV file is empty&quot;);</span>
+            }
+            /*delete previous semester data*/
+<span class="fc" id="L173">            stmt.executeUpdate(&quot;delete from engineering_core&quot;);</span>
+            String[] row1;
+<span class="fc bfc" id="L175" title="All 2 branches covered.">            while ((row1 = reader.readNext()) != null) {</span>
+                /*System.out.println(String.join(&quot;, &quot;, row));*/
+<span class="fc" id="L177">                stmt=conn.createStatement();</span>
+<span class="fc" id="L178">                String query=&quot;insert into engineering_core values('&quot;+row1[0]+&quot;',&quot;+row1[1]+&quot;,&quot;+row1[2]+&quot;);&quot;;</span>
+<span class="fc" id="L179">                stmt.executeUpdate(query);</span>
+<span class="fc" id="L180">            }</span>
+<span class="fc" id="L181">            System.out.println(&quot;Engineering cores added for this semester successfully!&quot;);</span>
+<span class="fc" id="L182">            stmt=conn.createStatement();</span>
+<span class="nc" id="L183">        } catch (SQLException e) {</span>
+<span class="nc" id="L184">            System.out.println(&quot;Error reading CSV file: &quot; + e.getMessage());</span>
+<span class="fc" id="L185">        }</span>
+        /*------------------------------------------------------------------------------*/
+
+        /*------------------------------------------------------------------------------*/
+<span class="fc" id="L189">        try (CSVReader reader = new CSVReader(new FileReader(elec))) {</span>
+<span class="fc" id="L190">            String[] header = reader.readNext();</span>
+<span class="pc bpc" id="L191" title="1 of 2 branches missed.">            if (header == null) {</span>
+<span class="nc" id="L192">                System.out.println(&quot;Electives CSV file is empty&quot;);</span>
+            }
+<span class="fc" id="L194">            stmt.executeUpdate(&quot;delete from elective&quot;);</span>
+            String[] row;
+<span class="pc bpc" id="L196" title="1 of 2 branches missed.">            while ((row = reader.readNext()) != null) {</span>
+<span class="nc" id="L197">                stmt=conn.createStatement();</span>
+<span class="nc" id="L198">                String query=&quot;insert into electives values('&quot;+row[0]+&quot;',&quot;+row[1]+&quot;,&quot;+row[2]+&quot;,'&quot;+row[3]+&quot;');&quot;;</span>
+<span class="nc" id="L199">                stmt.executeUpdate(query);</span>
+<span class="nc" id="L200">            }</span>
+<span class="fc" id="L201">            System.out.println(&quot;Electives added for this semester successfully!&quot;);</span>
+<span class="nc" id="L202">        } catch (SQLException e) {</span>
+<span class="nc" id="L203">            System.out.println(&quot;Error reading CSV file: &quot; + e.getMessage());</span>
+<span class="fc" id="L204">        }</span>
+        /*------------------------------------------------------------------------------*/
+<span class="fc" id="L206">    }</span>
+
+    /*
+    * SEM3=19
+    * SEM4=23.5
+    * SEM5=30
+    * SEM6
+    * SEM7
+    * SEM8
+    * */
+
+    public static void edit_sem_info(Scanner in, Statement stmt, Connection conn){
+        int choice,t;
+<span class="fc" id="L219">        String session,insert_query=&quot;&quot;,check_query=&quot;&quot;;</span>
+<span class="fc" id="L220">        ResultSet rs=null,rs1=null;</span>
+        do{
+<span class="fc" id="L222">            System.out.println(&quot;----AVAILABLE OPTIONS----&quot;);</span>
+<span class="fc" id="L223">            System.out.println(&quot;Press 1=To start a new session&quot;);</span>
+<span class="fc" id="L224">            System.out.println(&quot;Press 2=To start course floating&quot;);</span>
+<span class="fc" id="L225">            System.out.println(&quot;Press 3=To start course registration&quot;);</span>
+<span class="fc" id="L226">            System.out.println(&quot;Press 4=To start grade submission&quot;);</span>
+<span class="fc" id="L227">            System.out.println(&quot;Press 5=To stop grade submission&quot;);</span>
+<span class="fc" id="L228">            System.out.println(&quot;Press 6=To stop course registration&quot;);</span>
+<span class="fc" id="L229">            System.out.println(&quot;Press 7=To stop course floating&quot;);</span>
+<span class="fc" id="L230">            System.out.println(&quot;Press 8=To end the session&quot;);</span>
+<span class="fc" id="L231">            System.out.println(&quot;Press 9=To go back to academic office home page&quot;);</span>
+<span class="fc" id="L232">            System.out.print(&quot;Enter your choice:&quot;);</span>
+<span class="fc" id="L233">            choice=in.nextInt();</span>
+<span class="fc" id="L234">            System.out.println(&quot;Choices in the funct=&quot;+choice);</span>
+            try{
+<span class="fc" id="L236">                stmt=conn.createStatement();</span>
+<span class="fc" id="L237">                String curr_sem=&quot;&quot;;</span>
+<span class="fc" id="L238">                boolean is_sem_present=false;</span>
+<span class="fc" id="L239">                check_query=&quot;select * from event_table_acads where lower(current_sem)='y';&quot;;</span>
+<span class="fc" id="L240">                rs=stmt.executeQuery(check_query);</span>
+<span class="fc bfc" id="L241" title="All 2 branches covered.">                while(rs.next()){</span>
+<span class="fc" id="L242">                    is_sem_present=true;</span>
+<span class="fc" id="L243">                    curr_sem=rs.getString(&quot;session&quot;);</span>
+                }
+                /*System.out.println(is_sem_present+&quot; &quot;+curr_sem);*/
+<span class="fc bfc" id="L246" title="All 2 branches covered.">                if(choice == 1){</span>
+<span class="fc bfc" id="L247" title="All 2 branches covered.">                    if(is_sem_present){</span>
+<span class="fc" id="L248">                        System.out.println(&quot;Already a session running. You can't enter a new session&quot;);</span>
+                    }
+                    else{
+<span class="fc" id="L251">                        System.out.print(&quot;Enter new session:&quot;);</span>
+<span class="fc" id="L252">                        session=in.next();</span>
+<span class="fc" id="L253">                        in.nextLine();</span>
+<span class="fc" id="L254">                        insert_query=&quot;insert into event_table_acads values('&quot;+session+&quot;','Y','0','0','0');&quot;;</span>
+<span class="fc" id="L255">                        System.out.println(insert_query);</span>
+<span class="fc" id="L256">                        stmt.executeUpdate(insert_query);</span>
+                    }
+                }
+<span class="fc bfc" id="L259" title="All 2 branches covered.">                else if(choice == 2){</span>
+<span class="fc" id="L260">                    System.out.println(&quot;choice 2&quot;);</span>
+                    /*System.out.println(&quot;Is sem present:=&quot;+is_sem_present);*/
+<span class="fc bfc" id="L262" title="All 2 branches covered.">                    if(is_sem_present){</span>
+<span class="fc" id="L263">                        rs1=stmt.executeQuery(&quot;select * from event_table_acads where session='&quot;+curr_sem+&quot;' and courses_float='0';&quot;);</span>
+<span class="fc bfc" id="L264" title="All 2 branches covered.">                        if(!rs1.isBeforeFirst()){</span>
+<span class="fc" id="L265">                            System.out.println(&quot;You can start course floating only once in a session&quot;);</span>
+                        }
+                        else{
+<span class="fc" id="L268">                            stmt.executeUpdate(&quot;update event_table_acads set courses_float='Y' where session='&quot;+curr_sem+&quot;';&quot;);</span>
+<span class="fc" id="L269">                            System.out.println(&quot;Course floating started for session=&quot;+curr_sem);</span>
+                        }
+                    }
+                    else{
+<span class="fc" id="L273">                        System.out.println(&quot;There is no running session&quot;);</span>
+                    }
+                }
+<span class="fc bfc" id="L276" title="All 2 branches covered.">                else if(choice == 3){</span>
+<span class="fc" id="L277">                    System.out.println(&quot;yo bhai&quot;);</span>
+<span class="fc" id="L278">                    rs=stmt.executeQuery(&quot;select * from event_table_acads where lower(current_sem)='y';&quot;);</span>
+                    /*current session and course floating*/
+                    /*course have been floated but not even once course registeration started*/
+<span class="fc" id="L281">                    String are_courses_floated=&quot;&quot;,course_reg;</span>
+
+<span class="fc bfc" id="L283" title="All 2 branches covered.">                    if(!rs.isBeforeFirst()){</span>
+<span class="fc" id="L284">                        System.out.println(&quot;No session is currently running&quot;);</span>
+                    }
+                    else{
+<span class="fc" id="L287">                        rs.next();</span>
+<span class="fc" id="L288">                        are_courses_floated=rs.getString(&quot;courses_float&quot;);</span>
+<span class="fc" id="L289">                        course_reg=rs.getString(&quot;courses_add_drop&quot;);</span>
+<span class="fc" id="L290">                        System.out.println(&quot;courses floated=&quot;+are_courses_floated);</span>
+<span class="fc bfc" id="L291" title="All 2 branches covered.">                        if(are_courses_floated.equalsIgnoreCase(&quot;Y&quot;)){</span>
+<span class="fc bfc" id="L292" title="All 2 branches covered.">                            if( course_reg.equalsIgnoreCase(&quot;0&quot;)){</span>
+<span class="fc" id="L293">                                stmt.executeUpdate(&quot;update event_table_acads set courses_add_drop='Y' where session='&quot;+curr_sem+&quot;';&quot;);</span>
+<span class="fc" id="L294">                                System.out.println(&quot;Course registration opened&quot;);</span>
+                            }
+                            else{
+<span class="fc" id="L297">                                System.out.println(&quot;You can start course add/drop only once in a session&quot;);</span>
+                            }
+                        }
+                        else{
+<span class="fc" id="L301">                            System.out.println(&quot;Can't open course registration before allowing course floating&quot;);</span>
+                        }
+                    }
+<span class="fc" id="L304">                }</span>
+<span class="fc bfc" id="L305" title="All 2 branches covered.">                else if(choice == 4){</span>
+<span class="fc" id="L306">                    String courses_floated=&quot;&quot;,course_reg=&quot;&quot;,grade=&quot;&quot;;</span>
+<span class="fc" id="L307">                    rs=stmt.executeQuery(&quot;select * from event_table_acads where lower(current_sem)='y';&quot;);</span>
+<span class="fc bfc" id="L308" title="All 2 branches covered.">                    if(!rs.isBeforeFirst()){</span>
+<span class="fc" id="L309">                        System.out.println(&quot;No session is currently running&quot;);</span>
+                    }
+                    else{
+<span class="fc" id="L312">                        rs.next();</span>
+<span class="fc" id="L313">                        courses_floated=rs.getString(&quot;courses_float&quot;);</span>
+<span class="fc" id="L314">                        course_reg=rs.getString(&quot;courses_add_drop&quot;);</span>
+<span class="fc" id="L315">                        grade=rs.getString(&quot;grade_submission&quot;);</span>
+<span class="fc bfc" id="L316" title="All 2 branches covered.">                        if(courses_floated.equalsIgnoreCase(&quot;N&quot;)){</span>
+<span class="fc bfc" id="L317" title="All 2 branches covered.">                            if(course_reg.equalsIgnoreCase(&quot;N&quot;)){</span>
+<span class="fc bfc" id="L318" title="All 2 branches covered.">                                if(grade.equalsIgnoreCase(&quot;0&quot;)){</span>
+<span class="fc" id="L319">                                    stmt.executeUpdate(&quot;update event_table_acads set grade_submission='Y' where session='&quot;+curr_sem+&quot;';&quot;);</span>
+<span class="fc" id="L320">                                    System.out.println(&quot;Grade submission by faculties allowed&quot;);</span>
+                                }
+                                else{
+<span class="fc" id="L323">                                    System.out.println(&quot;Grade submission allowed only once.&quot;);</span>
+                                }
+                            }
+                            else{
+<span class="fc bfc" id="L327" title="All 2 branches covered.">                                if(course_reg.equalsIgnoreCase(&quot;Y&quot;)) System.out.println(&quot;First end course registration&quot;);</span>
+<span class="fc" id="L328">                                else System.out.println(&quot;First start course registration&quot;);</span>
+                            }
+                        }
+                        else{
+<span class="fc" id="L332">                            System.out.println(courses_floated+&quot; &quot;+course_reg+&quot; &quot;+grade);</span>
+<span class="pc bpc" id="L333" title="1 of 2 branches missed.">                            if(courses_floated.equalsIgnoreCase(&quot;Y&quot;)) System.out.println(&quot;First end course floating&quot;);</span>
+<span class="fc" id="L334">                            else System.out.println(&quot;First start course floating&quot;);</span>
+                        }
+                    }
+<span class="fc" id="L337">                }</span>
+<span class="fc bfc" id="L338" title="All 2 branches covered.">                else if(choice == 5){</span>
+<span class="fc" id="L339">                    rs=stmt.executeQuery(&quot;select * from event_table_acads where session='&quot;+curr_sem+&quot;';&quot;);</span>
+<span class="fc bfc" id="L340" title="All 2 branches covered.">                    if(!rs.isBeforeFirst()){</span>
+<span class="fc" id="L341">                        System.out.println(&quot;No session is currently running&quot;);</span>
+                    }
+                    else{
+<span class="fc" id="L344">                        rs.next();</span>
+<span class="fc" id="L345">                        String grade_submit=rs.getString(&quot;grade_submission&quot;);</span>
+<span class="fc bfc" id="L346" title="All 2 branches covered.">                        if(grade_submit.equalsIgnoreCase(&quot;Y&quot;)){</span>
+<span class="fc" id="L347">                            stmt.executeUpdate(&quot;update event_table_acads set grade_submission='N' where session='&quot;+curr_sem+&quot;';&quot;);</span>
+<span class="fc" id="L348">                            System.out.println(&quot;Grade Submission stopped&quot;);</span>
+                        }
+                        else{
+<span class="fc" id="L351">                            System.out.println(&quot;Grade submission not yet started&quot;);</span>
+                        }
+<span class="fc" id="L353">                    }</span>
+                }
+<span class="fc bfc" id="L355" title="All 2 branches covered.">                else if(choice == 6){</span>
+<span class="fc" id="L356">                    rs=stmt.executeQuery(&quot;select * from event_table_acads where session='&quot;+curr_sem+&quot;';&quot;);</span>
+<span class="fc bfc" id="L357" title="All 2 branches covered.">                    if(!rs.isBeforeFirst()){</span>
+<span class="fc" id="L358">                        System.out.println(&quot;No session is currently running&quot;);</span>
+                    }
+                    else{
+<span class="fc" id="L361">                        rs.next();</span>
+<span class="fc" id="L362">                        String course_reg=rs.getString(&quot;courses_add_drop&quot;);</span>
+<span class="fc bfc" id="L363" title="All 2 branches covered.">                        if(course_reg.equalsIgnoreCase(&quot;Y&quot;)){</span>
+<span class="fc" id="L364">                            stmt.executeUpdate(&quot;update event_table_acads set courses_add_drop='N' where session='&quot;+curr_sem+&quot;';&quot;);</span>
+<span class="fc" id="L365">                            System.out.println(&quot;COURSE REGISTRATION STOPPED&quot;);</span>
+                        }
+                        else{
+<span class="fc" id="L368">                            System.out.println(&quot;Course registration not yet started&quot;);</span>
+                        }
+<span class="fc" id="L370">                    }</span>
+                }
+<span class="fc bfc" id="L372" title="All 2 branches covered.">                else if(choice == 7){</span>
+<span class="fc" id="L373">                    rs=stmt.executeQuery(&quot;select * from event_table_acads where session='&quot;+curr_sem+&quot;';&quot;);</span>
+<span class="fc bfc" id="L374" title="All 2 branches covered.">                    if(!rs.isBeforeFirst()){</span>
+<span class="fc" id="L375">                        System.out.println(&quot;No session is currently running&quot;);</span>
+                    }
+                    else{
+<span class="fc" id="L378">                        rs.next();</span>
+<span class="fc" id="L379">                        String course_float=rs.getString(&quot;courses_float&quot;);</span>
+<span class="pc bpc" id="L380" title="1 of 2 branches missed.">                        if(course_float.equalsIgnoreCase(&quot;Y&quot;)){</span>
+<span class="fc" id="L381">                            stmt.executeUpdate(&quot;update event_table_acads set courses_float='N' where session='&quot;+curr_sem+&quot;';&quot;);</span>
+<span class="fc" id="L382">                            System.out.println(&quot;COURSE FLOATING STOPPED&quot;);</span>
+                        }
+<span class="fc" id="L384">                    }</span>
+                }
+<span class="fc bfc" id="L386" title="All 2 branches covered.">                else if(choice == 8){</span>
+<span class="fc" id="L387">                    rs=stmt.executeQuery(&quot;select * from event_table_acads where session='&quot;+curr_sem+&quot;';&quot;);</span>
+<span class="fc bfc" id="L388" title="All 2 branches covered.">                    if(!rs.isBeforeFirst()){</span>
+<span class="fc" id="L389">                        System.out.println(&quot;No session is currently running&quot;);</span>
+                    }
+                    else{
+<span class="fc" id="L392">                        rs.next();</span>
+<span class="fc" id="L393">                        String course_float=rs.getString(&quot;courses_float&quot;),course_rg=rs.getString(&quot;courses_add_drop&quot;),grade=rs.getString(&quot;grade_submission&quot;);</span>
+<span class="fc" id="L394">                        System.out.println(&quot;yaar&quot;+course_float+&quot; &quot;+course_rg+&quot; &quot;+grade);</span>
+<span class="fc bfc" id="L395" title="All 2 branches covered.">                        if(course_float.equalsIgnoreCase(&quot;N&quot;)){</span>
+<span class="fc bfc" id="L396" title="All 2 branches covered.">                            if(course_rg.equalsIgnoreCase(&quot;N&quot;)){</span>
+<span class="pc bpc" id="L397" title="1 of 2 branches missed.">                                if(grade.equalsIgnoreCase(&quot;N&quot;)){</span>
+<span class="fc" id="L398">                                    stmt.executeUpdate(&quot;delete from event_table_acads where session='&quot;+curr_sem+&quot;';&quot;);</span>
+<span class="fc" id="L399">                                    System.out.println(&quot;session=&quot;+curr_sem+&quot; finished. Thank you!!!!&quot;);</span>
+<span class="fc" id="L400">                                    remove_previous_grade_submissions();</span>
+                                }
+                                else{
+<span class="nc" id="L403">                                    System.out.println(&quot;End grade submission first&quot;);</span>
+                                }
+                            }
+                            else{
+<span class="fc" id="L407">                                System.out.println(&quot;End course registration&quot;);</span>
+                            }
+                        }
+                        else{
+<span class="fc" id="L411">                            System.out.println(&quot;End course floating&quot;);</span>
+                        }
+                    }
+                    /*check for students who have reached 8 semester and are eligible for graduation*/
+                }
+<span class="nc" id="L416">            }catch(SQLException e){</span>
+<span class="nc" id="L417">                e.printStackTrace();</span>
+<span class="fc" id="L418">            }</span>
+<span class="fc bfc" id="L419" title="All 2 branches covered.">        }while(choice!=9);</span>
+<span class="fc" id="L420">    }</span>
+
+
+    public static void transcript(Statement stmt,Connection conn,Scanner in,String session)throws IOException{
+        String id;
+<span class="fc" id="L425">        System.out.print(&quot;Please enter student ID:&quot;);</span>
+<span class="fc" id="L426">        id=in.next();</span>
+<span class="fc" id="L427">        in.nextLine();</span>
+<span class="fc" id="L428">        Generate_Transcript.transcript(id,stmt,conn,session,1);</span>
+<span class="fc" id="L429">    }</span>
+    public static int academic_login_front_end(Scanner in, Statement stmt, String email, String password,Connection conn) throws IOException, CsvValidationException {
+<span class="fc" id="L431">        int t=0,ch=0;</span>
+<span class="fc" id="L432">        System.out.println(&quot;----ACADEMIC OFFICE LOGIN----&quot;);</span>
+<span class="fc" id="L433">        System.out.println(&quot;Press 1=View grade of all students&quot;);</span>
+<span class="fc" id="L434">        System.out.println(&quot;Press 2=To edit the course catalog(add or remove new courses)&quot;);</span>
+<span class="fc" id="L435">        System.out.println(&quot;Press 3=To generate transcripts of students&quot;);</span>
+<span class="fc" id="L436">        System.out.println(&quot;Press 4=To add a session information, whether to allow course registration,grade submission&quot;);</span>
+<span class="fc" id="L437">        System.out.println(&quot;Press 5=To specify a course for current session and its type&quot;);</span>
+<span class="fc" id="L438">        System.out.print(&quot;Enter your choice:&quot;);</span>
+<span class="fc" id="L439">        ch=in.nextInt();</span>
+<span class="fc" id="L440">        System.out.println(&quot;mera choice=&quot;+ch);</span>
+        ResultSet rs_current_sem;
+<span class="fc" id="L442">        String curr_session=&quot;&quot;;</span>
+        try{
+<span class="fc" id="L444">            rs_current_sem=stmt.executeQuery(&quot;select * from event_table_acads where lower(current_sem)='y';&quot;);</span>
+<span class="fc bfc" id="L445" title="All 2 branches covered.">            while(rs_current_sem.next()){</span>
+<span class="fc" id="L446">                curr_session=rs_current_sem.getString(&quot;session&quot;);</span>
+            }
+<span class="nc" id="L448">        }catch(SQLException e){</span>
+<span class="nc" id="L449">            e.printStackTrace();</span>
+<span class="fc" id="L450">        }</span>
+<span class="fc bfc" id="L451" title="All 2 branches covered.">        if(ch == 1){</span>
+<span class="fc" id="L452">            System.out.println(&quot;yo&quot;);</span>
+<span class="fc" id="L453">            view_grade(in,stmt);</span>
+        }
+<span class="fc bfc" id="L455" title="All 2 branches covered.">        else if(ch == 2){</span>
+<span class="fc bfc" id="L456" title="All 2 branches covered.">            if(email.equals(&quot;deanstaff@iitrpr.ac.in&quot;)){</span>
+<span class="fc" id="L457">                edit_course_catalog(in,stmt);</span>
+            }
+            else{
+<span class="fc" id="L460">                System.out.println(&quot;You are not allowed to edit course catalog&quot;);</span>
+            }
+        }
+<span class="fc bfc" id="L463" title="All 2 branches covered.">        else if(ch == 3){</span>
+<span class="fc" id="L464">            transcript(stmt,conn,in,curr_session);</span>
+        }
+<span class="fc bfc" id="L466" title="All 2 branches covered.">        else if(ch == 4){</span>
+<span class="fc" id="L467">            edit_sem_info(in,stmt,conn);</span>
+        }
+<span class="pc bpc" id="L469" title="1 of 2 branches missed.">        else if(ch == 5){</span>
+<span class="fc" id="L470">            add_courses_in_the_beginning_of_semester(stmt,conn);</span>
+        }
+<span class="fc" id="L472">        System.out.print(&quot;Press 1 to go back to login page else 0 to continue:&quot;);</span>
+<span class="fc" id="L473">        t=in.nextInt();</span>
+<span class="fc" id="L474">        return t;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
